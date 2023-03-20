@@ -19,17 +19,25 @@ class Item extends Model
      * $this->attributes['guide'] - string - contains the item guide
      * $this->attributes['pieces'] - int - contains the item number of pieces
      * $this->attributes['stock'] - int - contains the item stock
+     * $this->attributes['image'] - string - contains the item image path
      */
-    protected $fillable = ['title', 'type', 'price', 'guide', 'pieces', 'stock'];
+    protected $fillable = ['title', 'type', 'price', 'guide', 'pieces', 'stock', 'image'];
+
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'title' => 'required',
+            'price' => 'required|gt:0',
+            'guide' => 'required',
+            'pieces' => 'required|gt:0',
+            'stock' => 'required|gt:0',
+            'image' => 'required|image|mimes:jpeg,bmp,png'
+        ]);
+    }
 
     public function getId(): int
     {
         return $this->attributes['id'];
-    }
-
-    public function setId(int $id): void
-    {
-        $this->attributes['id'] = $id;
     }
 
     public function getTitle(): string
@@ -92,14 +100,13 @@ class Item extends Model
         $this->attributes['stock'] = $stock;
     }
 
-    public static function validate(Request $request): void
+    public function getImage(): string
     {
-        $request->validate([
-            'title' => 'required',
-            'price' => 'required|gt:0',
-            'guide' => 'required',
-            'pieces' => 'required|gt:0',
-            'stock' => 'required|gt:0',
-        ]);
+        return $this->attributes['image'];
+    }
+
+    public function setImage(string $image): void
+    {
+        $this->attributes['image'] = $image;
     }
 }

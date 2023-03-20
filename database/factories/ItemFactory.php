@@ -15,6 +15,7 @@ class ItemFactory extends Factory
             'guide' => $this->faker->paragraph,
             'pieces' => $this->faker->numberBetween($min = 1, $max = 1000),
             'stock' => $this->faker->numberBetween($min = 0, $max = 50),
+            'image' => $this->faker->image('public/storage/item',640,480, null, false),
         ];
     }
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('guide');
             $table->integer('pieces');
             $table->integer('stock');
+            $table->string('image');
             $table->timestamps();
         });
     }
