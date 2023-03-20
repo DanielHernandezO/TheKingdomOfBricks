@@ -10,6 +10,16 @@ class Item extends Model
 {
     use HasFactory;
 
+    /**
+     * ITEM ATTRIBUTES
+     * $this->attributes['id'] - int - contains the item primary key (id)
+     * $this->attributes['title'] - string - contains the item title
+     * $this->attributes['type'] - string - contains the item type
+     * $this->attributes['price'] - int - contains the item price
+     * $this->attributes['guide'] - string - contains the item guide
+     * $this->attributes['pieces'] - int - contains the item number of pieces
+     * $this->attributes['stock'] - int - contains the item stock
+     */
     protected $fillable = ['title', 'type', 'price', 'guide', 'pieces', 'stock'];
 
     public function getId(): int
