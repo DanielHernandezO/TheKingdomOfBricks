@@ -31,7 +31,7 @@ class Item extends Model
             'guide' => 'required',
             'pieces' => 'required|gt:0',
             'stock' => 'required|gt:0',
-            'image' => 'required|image|mimes:jpeg,bmp,png'
+            'image' => 'required|image|mimes:jpeg,bmp,png',
         ]);
     }
 
