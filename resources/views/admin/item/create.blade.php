@@ -23,8 +23,6 @@
                                 @csrf
                                 <input type="text" class="form-control mb-2" placeholder="{{ __('commons.placeholder', ['att' => __('commons.title')]) }}" name="title"
                                     value="{{ old('title') }}" />
-                                <input type="text" class="form-control mb-2" placeholder="{{__('commons.placeholder', ['att' => __('commons.type')])}}" name="type"
-                                    value="{{ old('type') }}" />
                                 <select class="form-control mb-2" placeholder="{{__('commons.placeholder', ['att' => __('commons.type')])}}" name="type"
                                     value="{{ old('type') }}" selected>
                                     <option value="head">{{__('commons.head')}}</option>
