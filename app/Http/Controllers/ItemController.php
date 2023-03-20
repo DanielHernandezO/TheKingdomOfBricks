@@ -37,16 +37,9 @@ class ItemController extends Controller
 
     public function save(Request $request): View
     {
-        $request->validate([
-            'title' => 'required',
-            'type' => 'required',
-            'price' => 'required|gt:0',
-            'guide' => 'required',
-            'pieces' => 'required|gt:0',
-            'stock' => 'required|gt:0',
-        ]);
-        $viewData['item'] = $request->all();
+        Item::validate($request);
         Item::create($request->only(['title', 'type', 'price', 'guide', 'pieces', 'stock']));
+        $viewData['item'] = $request->all();
 
         return view('item.save')->with('viewData', $viewData);
     }

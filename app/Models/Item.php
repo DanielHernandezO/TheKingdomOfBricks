@@ -80,4 +80,15 @@ class Item extends Model
     {
         $this->attributes['stock'] = $stock;
     }
+
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'title' => 'required',
+            'price' => 'required|gt:0',
+            'guide' => 'required',
+            'pieces' => 'required|gt:0',
+            'stock' => 'required|gt:0',
+        ]);
+    }
 }
