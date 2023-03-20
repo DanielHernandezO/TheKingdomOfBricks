@@ -1,6 +1,6 @@
 @extends('layouts.adminApp')
-@section('title', 'titlequemao')
-@section('subtitle', 'subquemao')
+@section('title', __('admin.itemTitle'))
+@section('subtitle', $viewData['item']->getTitle())
 @section('content')
     <div class="card mb-3">
         <div class="row g-0">
@@ -25,7 +25,7 @@
                     >{{ $viewData['item']->getStock() }}</p>
                 </div>
             </div>
-            <form method="POST" action="{{ route('item.delete', ['id'=> $viewData['item']->getId()]) }}">
+            <form method="POST" action="{{ route('admin.item.delete', ['id'=> $viewData['item']->getId()]) }}">
                 @csrf
                 @method("DELETE")
                 <input type="submit" class="btn btn-danger" value={{__('actions.delete')}}>

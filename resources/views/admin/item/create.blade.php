@@ -1,5 +1,5 @@
 @extends('layouts.adminApp')
-@section('title', __('admin.title'))
+@section('title', __('admin.itemTitle'))
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -19,7 +19,7 @@
                                     {{session('success')}}
                                 </div>
                             @endif
-                            <form method="POST" action="{{ route('item.save') }}">
+                            <form method="POST" action="{{ route('admin.item.save') }}">
                                 @csrf
                                 <input type="text" class="form-control mb-2" placeholder="{{ __('commons.placeholder', ['att' => __('commons.title')]) }}" name="title"
                                     value="{{ old('title') }}" />

@@ -14,7 +14,7 @@ class ItemController extends Controller
         $viewData = [];
         $viewData['items'] = Item::all();
 
-        return view('item.index')->with('viewData', $viewData);
+        return view('admin.item.index')->with('viewData', $viewData);
     }
 
     public function show(string $id): View|RedirectResponse
@@ -22,17 +22,17 @@ class ItemController extends Controller
         $viewData = [];
         $item = Item::find($id);
         if (is_null($item)) {
-            return redirect()->route('home.index');
+            return redirect()->route('admin.index');
         }
 
         $viewData['item'] = $item;
 
-        return view('item.show')->with('viewData', $viewData);
+        return view('admin.item.show')->with('viewData', $viewData);
     }
 
     public function create(): View
     {
-        return view('item.create');
+        return view('admin.item.create');
     }
 
     public function save(Request $request): RedirectResponse
@@ -49,6 +49,6 @@ class ItemController extends Controller
         $item = Item::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('item.index');
+        return redirect()->route('admin.item.index');
     }
 }
