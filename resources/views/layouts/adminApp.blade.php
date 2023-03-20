@@ -19,8 +19,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
-        <!-- TODO add access to item views -->
           <a class="nav-link active" href="{{ route('admin.index') }}">{{__('commons.home')}}</a>
+          <a class="nav-link active" href="{{ route('admin.item.create') }}">{{__('admin.createItem')}}</a>
+          <a class="nav-link active" href="{{ route('admin.item.index') }}">{{__('admin.listItems')}}</a>
           <a class="nav-link active" href="{{ route('admin.review.create') }}">{{__('admin.createReview')}}</a>
           <a class="nav-link active" href="{{ route('admin.review.index') }}">{{__('admin.listReviews')}}</a>
 
