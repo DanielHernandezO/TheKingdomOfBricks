@@ -35,13 +35,13 @@ class ItemController extends Controller
         return view('item.create');
     }
 
-    public function save(Request $request): View
+    public function save(Request $request): RedirectResponse
     {
         Item::validate($request);
         Item::create($request->only(['title', 'type', 'price', 'guide', 'pieces', 'stock']));
         $viewData['item'] = $request->all();
 
-        return view('item.save')->with('viewData', $viewData);
+        return back()->withSuccess(__('admin.itemCreated'));
     }
 
     public function delete(int $id): RedirectResponse
