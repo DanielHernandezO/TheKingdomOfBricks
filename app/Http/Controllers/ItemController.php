@@ -7,6 +7,7 @@ use App\Interfaces\ImageStorage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Exception;
 
 class ItemController extends Controller
 {
@@ -20,15 +21,14 @@ class ItemController extends Controller
 
     public function show(string $id): View|RedirectResponse
     {
-        $viewData = [];
-        $item = Item::find($id);
-        if (is_null($item)) {
+        try {
+            $viewData = [];
+            $item = Item::findOrFail($id);
+            $viewData['item'] = $item;
+            return view('admin.item.show')->with('viewData', $viewData);
+        } catch (Exception $e) {
             return redirect()->route('admin.index');
         }
-
-        $viewData['item'] = $item;
-
-        return view('admin.item.show')->with('viewData', $viewData);
     }
 
     public function create(): View

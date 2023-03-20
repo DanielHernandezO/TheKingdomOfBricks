@@ -8,11 +8,6 @@ use Illuminate\Support\ServiceProvider;
 
 class ImageServiceProvider extends ServiceProvider
 {
-    public function boot()
-    {
-        //
-    }
-    
     public function register(): void
     {
         $this->app->bind(ImageStorage::class, function () {
