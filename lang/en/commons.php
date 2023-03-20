@@ -31,4 +31,8 @@ return [
     'ratingSpan' => 'Rating: :value/5',
     'commentSpan' => 'comment: :value',
     'review' => 'Review #:id',
+    'welcomeDescription' => 'Here at our store, we are passionate about the world of Lego building blocks. We offer a wide variety of Lego products, from classic building bricks to specialized themed sets such as Star Wars, Harry Potter, and much more.',
+    'about' => 'About us',
+    'products' => 'Products',
+    'copyright' => 'Copyright',
 ];

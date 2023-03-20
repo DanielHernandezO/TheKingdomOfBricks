@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
 Route::get('/admin', 'App\Http\Controllers\AdminController@index')->name('admin.index');
 
 Route::get('/admin/items/create', 'App\Http\Controllers\ItemController@create')->name('admin.item.create');
