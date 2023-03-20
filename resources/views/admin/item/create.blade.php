@@ -19,7 +19,7 @@
                                     {{session('success')}}
                                 </div>
                             @endif
-                            <form method="POST" action="{{ route('admin.item.save') }}">
+                            <form method="POST" enctype="multipart/form-data" action="{{ route('admin.item.save') }}">
                                 @csrf
                                 <input type="text" class="form-control mb-2" placeholder="{{ __('commons.placeholder', ['att' => __('commons.title')]) }}" name="title"
                                     value="{{ old('title') }}" />
@@ -38,6 +38,10 @@
                                     value="{{ old('pieces') }}" />
                                 <input type="number" class="form-control mb-2" placeholder="{{__('commons.placeholder', ['att' => __('commons.stock')])}}" name="stock"
                                     value="{{ old('stock') }}" />
+                                <div class="form-group">
+                                    <input type="file" name="image" />
+                                </div>
+                                <img class="img-fluid rounded" src="{{ URL::asset('storage/test.png') }}" />
                                 <input type="submit" class="btn btn-primary" value={{__('actions.send')}} />
                             </form>
                         </div>

@@ -6,7 +6,7 @@
         @foreach ($viewData['items'] as $item)
             <div class="col-md-4 col-lg-3 mb-2">
                 <div class="card">
-                    <img src="https://laravel.com/img/logotype.min.svg" class="card-img-top img-card">
+                    <img src="{{ URL::asset('storage/item/'.$item->getImage()) }}" class="card-img-top img-card">
                     <div class="card-body text-center">
                     <p>{{ $item->getId() }}. {{ $item->getTitle() }}</p>
                         <a href="{{ route('admin.item.show', ['id' => $item['id']]) }}"

@@ -6,7 +6,7 @@
         <div class="row g-0">
             <div class="col-md-4">
                 <img
-                    src="https://laravel.com/img/logotype.min.svg" class="img-fluid rounded-start"
+                    src="{{ URL::asset('storage/item/'.$viewData['item']->getImage()) }}" class="img-fluid rounded-start"
                 ></img>
             </div>
             <div class="col-md-8">
