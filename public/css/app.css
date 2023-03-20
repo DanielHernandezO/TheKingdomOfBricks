@@ -1,0 +1,26 @@
+.bg-secondary {
+  background-color: #1a252f !important;
+}
+
+.copyright {
+  background-color: #1a252f;
+}
+
+.bg-primary {
+  background-color: #c9900a !important;
+}
+
+nav{
+  font-weight: 700;
+}
+
+.img-card{
+  height: 18vw;
+  object-fit: cover;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
