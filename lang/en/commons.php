@@ -30,7 +30,5 @@ return [
     'rating' => 'rating',
     'ratingSpan' => 'Rating: :value/5',
     'commentSpan' => 'comment: :value',
-    'review' => 'Review #:id',
-    'reviewTitle' => 'Reviews section',
-    'reviewList' => 'List of reviews'
+    'review' => 'Review #:id'
 ];
