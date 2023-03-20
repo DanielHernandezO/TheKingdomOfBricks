@@ -13,8 +13,6 @@ class ReviewController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['title'] = __('commons.reviewTitle');
-        $viewData['subtitle'] = __('commons.reviewList');
         $viewData['reviews'] = Review::all();
 
         return view('admin.review.index')->with('viewData', $viewData);
@@ -25,8 +23,6 @@ class ReviewController extends Controller
         try {
             $viewData = [];
             $review = Review::findOrFail($id);
-            $viewData['title'] = __('commons.reviewTitle');
-            $viewData['subtitle'] = __('commons.review', ['id' => $review->getId()]);
             $viewData['review'] = $review;
 
             return view('admin.review.show')->with('viewData', $viewData);
@@ -37,18 +33,12 @@ class ReviewController extends Controller
 
     public function create(): View
     {
-        $viewData = []; //to be sent to the view
-        $viewData['title'] = __('admin.createReview');
-
-        return view('admin.review.create')->with('viewData', $viewData);
+        return view('admin.review.create');
     }
 
     public function save(Request $request): RedirectResponse
     {
-        $request->validate([
-            'rating' => 'required',
-            'comment' => 'required',
-        ]);
+        Review::validate($request);
         Review::create($request->only(['rating', 'comment']));
 
         return back()->withSuccess(__('admin.reviewCreated'));

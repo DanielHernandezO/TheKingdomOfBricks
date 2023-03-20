@@ -1,5 +1,5 @@
 @extends('layouts.adminApp')
-@section("title", $viewData["title"])
+@section("title", __('admin.createReview'))
 @section('content')
 <div class="container">
   <div class="row justify-content-center">

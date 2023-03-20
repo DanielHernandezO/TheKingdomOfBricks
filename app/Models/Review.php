@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Review extends Model
 {
     use HasFactory;
 
     /**
-     * PRODUCT ATTRIBUTES
+     * REVIEW ATTRIBUTES
      * $this->attributes['id'] - int - contains the review primary key (id)
      * $this->attributes['rating'] - int - contains the rating of the review
      * $this->attributes['comment'] - string - contains the review comment
@@ -45,5 +46,13 @@ class Review extends Model
     public function setComment(string $comment): void
     {
         $this->attributes['comment'] = $comment;
+    }
+
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'rating' => 'required',
+            'comment' => 'required',
+        ]);
     }
 }

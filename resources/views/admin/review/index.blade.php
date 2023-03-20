@@ -1,6 +1,6 @@
 @extends('layouts.adminApp')
-@section('title', $viewData["title"])
-@section('subtitle', $viewData["subtitle"])
+@section('title', __('commons.reviewTitle'))
+@section('subtitle', __('commons.reviewList'))
 @section('content')
 <div class="row">
   @foreach ($viewData["reviews"] as $review)

@@ -1,6 +1,6 @@
 @extends('layouts.adminApp')
-@section('title', $viewData["title"])
-@section('subtitle', $viewData["subtitle"])
+@section('title', __('commons.reviewTitle'))
+@section('subtitle', __('commons.review', ['id' => $review->getId()]))
 @section('content')
 <div class="card mb-3">
   <div class="row g-0">
