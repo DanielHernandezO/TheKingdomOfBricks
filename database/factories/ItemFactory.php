@@ -10,7 +10,7 @@ class ItemFactory extends Factory
     {
         return [
             'title' => $this->faker->realText($this->faker->numberBetween($min = 10, $max = 18)),
-            'type' => $this->faker->randomElement(['Head', 'Chest', 'Legs', 'Box']),
+            'type' => $this->faker->randomElement(['head', 'chest', 'legs', 'box']),
             'price' => $this->faker->numberBetween($min = 200, $max = 9000),
             'guide' => $this->faker->paragraph,
             'pieces' => $this->faker->numberBetween($min = 1, $max = 1000),
