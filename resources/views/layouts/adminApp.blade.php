@@ -6,20 +6,23 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
   <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
-  <title>@yield('title', __('admin.title'))</title>
+  <title>@yield('title', __('commons.brand'))</title>
 </head>
 <body>
   <!-- header -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
     <div class="container">
-      <a class="navbar-brand" href="{{ route('admin.index') }}">{{__('admin.title')}}</a>
+      <a class="navbar-brand" href="{{ route('admin.index') }}">{{__('commons.brand')}}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
-          <a class="nav-link active" href="{{ route('admin.index') }}">{{__('admin.home')}}</a>
+          <a class="nav-link active" href="{{ route('admin.index') }}">{{__('commons.home')}}</a>
+          <a class="nav-link active" href="{{ route('admin.review.create') }}">{{__('admin.createReview')}}</a>
+          <a class="nav-link active" href="{{ route('admin.review.index') }}">{{__('admin.listReviews')}}</a>
+
         </div>
       </div>
     </div>
@@ -27,7 +30,7 @@
 
   <header class="masthead bg-primary text-white text-center py-4">
     <div class="container d-flex align-items-center flex-column">
-      <h2>@yield('subtitle', __('admin.subtitle'))</h2>
+      <h2>@yield('subtitle', __('commons.subtitle'))</h2>
     </div>
   </header>
   <!-- header -->
@@ -43,7 +46,7 @@
         <small>
             Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"
             href="https://twitter.com/juanda20202">
-            {{__('admin.devs')}}
+            {{__('commons.devs')}}
             </a>
         </small>
         </div>
