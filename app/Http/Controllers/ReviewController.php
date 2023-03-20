@@ -31,19 +31,6 @@ class ReviewController extends Controller
         }
     }
 
-    public function create(): View
-    {
-        return view('admin.review.create');
-    }
-
-    public function save(Request $request): RedirectResponse
-    {
-        Review::validate($request);
-        Review::create($request->only(['rating', 'comment']));
-
-        return back()->withSuccess(__('admin.reviewCreated'));
-    }
-
     public function delete(string $id): RedirectResponse
     {
         $review = Review::findOrFail($id);

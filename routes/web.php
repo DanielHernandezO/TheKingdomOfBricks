@@ -21,7 +21,5 @@ Route::get('/admin/items', 'App\Http\Controllers\ItemController@index')->name('a
 Route::get('/admin/items/{id}', 'App\Http\Controllers\ItemController@show')->name('admin.item.show');
 
 Route::get('/admin/reviews', 'App\Http\Controllers\ReviewController@index')->name('admin.review.index');
-Route::get('/admin/reviews/create', 'App\Http\Controllers\ReviewController@create')->name('admin.review.create');
-Route::post('/admin/reviews/save', 'App\Http\Controllers\ReviewController@save')->name('admin.review.save');
 Route::get('/admin/reviews/{id}', 'App\Http\Controllers\ReviewController@show')->name('admin.review.show');
 Route::delete('/admin/reviews/{id}', 'App\Http\Controllers\ReviewController@delete')->name('admin.review.delete');
