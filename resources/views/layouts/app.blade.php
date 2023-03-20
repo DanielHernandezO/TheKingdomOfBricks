@@ -21,6 +21,21 @@
                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+               <div class="navbar-nav ms-auto">
+                  <div class="vr bg-white mx-2 d-none d-lg-block"></div>
+                  @guest
+                  <a class="nav-link active" href="{{ route('login') }}">Login</a>
+                  <a class="nav-link active" href="{{ route('register') }}">Register</a>
+                  @else
+                  <form id="logout" action="{{ route('logout') }}" method="POST">
+                     <a role="button" class="nav-link active"
+                     onclick="document.getElementById('logout').submit();">Logout</a>
+                  @csrf
+                  </form>
+                  @endguest
+               </div>
+             </div>
          </div>
       </nav>
       <!-- header -->

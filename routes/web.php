@@ -24,3 +24,5 @@ Route::get('/admin/items/{id}', 'App\Http\Controllers\ItemController@show')->nam
 Route::get('/admin/reviews', 'App\Http\Controllers\ReviewController@index')->name('admin.review.index');
 Route::get('/admin/reviews/{id}', 'App\Http\Controllers\ReviewController@show')->name('admin.review.show');
 Route::delete('/admin/reviews/{id}', 'App\Http\Controllers\ReviewController@delete')->name('admin.review.delete');
+
+Auth::routes();
