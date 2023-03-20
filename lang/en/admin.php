@@ -1,9 +1,8 @@
 <?php
 
 return [
-    'title' => 'The kingdom of the bricks',
-    'subtitle' => 'Welcome!',
-    'home' => 'Home',
-    'devs' => 'The KB devs',
-    'welcome' => 'Welcome to the admin view'
+    'welcome' => 'Welcome to the admin view',
+    'createReview' => 'Create review',
+    'reviewCreated' => 'Review created successfully',
+    'listReviews' => 'List reviews'
 ];
