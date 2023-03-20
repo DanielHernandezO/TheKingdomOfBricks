@@ -1,60 +1,61 @@
 <!doctype html>
-
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
-    <title>@yield('title', 'El reino de los legos')</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+  <link href="{{ asset('/css/app.css') }}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" />
+  <title>@yield('title', __('commons.brand'))</title>
 </head>
-
 <body>
-    <!-- header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+  <!-- header -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary py-4">
+    <div class="container">
+      <a class="navbar-brand" href="{{ route('admin.index') }}">{{__('commons.brand')}}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ms-auto">
+        <!-- TODO add access to item views -->
+          <a class="nav-link active" href="{{ route('admin.index') }}">{{__('commons.home')}}</a>
+          <a class="nav-link active" href="{{ route('admin.review.create') }}">{{__('admin.createReview')}}</a>
+          <a class="nav-link active" href="{{ route('admin.review.index') }}">{{__('admin.listReviews')}}</a>
 
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-link active" href="{{ route('item.create') }}">Create</a>
-                    <a class="nav-link active" href="{{ route('item.index') }}">Items</a>
-                </div>
-            </div>
         </div>
-    </nav>
-
-    <header class="masthead bg-primary text-white text-center py-4">
-        <div class="container d-flex align-items-center flex-column">
-            <h2>@yield('subtitle', 'A Laravel EAFIT App')</h2>
-        </div>
-    </header>
-
-    <!-- header -->
-    <div class="container my-4">
-        @yield('content')
+      </div>
     </div>
+  </nav>
 
-    <!-- footer -->
+  <header class="masthead bg-primary text-white text-center py-4">
+    <div class="container d-flex align-items-center flex-column">
+      <h2>@yield('subtitle', __('commons.subtitle'))</h2>
+    </div>
+  </header>
+  <!-- header -->
+
+  <div class="container my-4">
+    @yield('content')
+  </div>
+
+  <!-- footer -->
+  <footer  class="footer">
     <div class="copyright py-4 text-center text-white">
         <div class="container">
-            <small>
-                Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"
-                    href="https://twitter.com/danielgarax">
-                    {{__('commons.devs')}}
-                </a>
-            </small>
+        <small>
+            Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"
+            href="https://twitter.com/juanda20202">
+            {{__('commons.devs')}}
+            </a>
+        </small>
         </div>
     </div>
+  </footer>
+  <!-- footer -->
 
-    <!-- footer -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+  </script>
 </body>
 </html>
