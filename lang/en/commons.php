@@ -13,7 +13,7 @@ return [
 
     //Item types
     'head' => 'Head',
-    'chest'=> 'Chest',
+    'chest' => 'Chest',
     'legs' => 'Legs',
     'box' => 'Box',
 
@@ -30,5 +30,5 @@ return [
     'rating' => 'rating',
     'ratingSpan' => 'Rating: :value/5',
     'commentSpan' => 'comment: :value',
-    'review' => 'Review #:id'
+    'review' => 'Review #:id',
 ];

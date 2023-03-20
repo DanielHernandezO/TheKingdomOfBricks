@@ -9,10 +9,10 @@ return [
     'itemCreated' => 'Item created successfully',
     'listItems' => 'List of items',
     'itemTitle' => 'Items section',
-    
+
     //Review
     'createReview' => 'Create review',
     'reviewCreated' => 'Review created successfully',
     'listReviews' => 'List reviews',
-    'reviewTitle' => 'Reviews section'
+    'reviewTitle' => 'Reviews section',
 ];
