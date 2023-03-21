@@ -22,6 +22,7 @@
             <div class="form-group mt-5">
                 <input type="submit" class="btn btn-danger delete-review" value="{{__('commons.delete')}}">
             </div>
+          </form>
       </div>
     </div>
     
