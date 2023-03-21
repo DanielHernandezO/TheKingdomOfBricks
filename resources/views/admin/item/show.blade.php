@@ -3,12 +3,12 @@
 @section('content')
     <div class="card mb-3">
         <div class="row g-0">
-            <div class="col-md-4">
+            <div class="col-md-4 align-items-center d-flex ">
                 <img
                     src="{{ URL::asset('storage/item/'.$viewData['item']->getImage()) }}" class="img-fluid rounded-start"
                 ></img>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 align-items-center d-flex">
                 <div class="card-body">
                     <h5 class="card-title">{{ $viewData['item']->getTitle() }}</h5>
                     <p class="card-text">{{ $viewData['item']->getId() }}</p>
@@ -22,13 +22,15 @@
                             class="card-text"
                         @endif
                     >{{ $viewData['item']->getStock() }}</p>
+                    <form method="POST" action="{{ route('admin.item.delete', ['id'=> $viewData['item']->getId()]) }}">
+                        @csrf
+                        @method("DELETE")
+                        <div class="form-group mt-2">
+                            <input type="submit" class="btn btn-danger" value={{__('actions.delete')}}>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <form method="POST" action="{{ route('admin.item.delete', ['id'=> $viewData['item']->getId()]) }}">
-                @csrf
-                @method("DELETE")
-                <input type="submit" class="btn btn-danger" value={{__('actions.delete')}}>
-            </form>
         </div>
     </div>
 @endsection
