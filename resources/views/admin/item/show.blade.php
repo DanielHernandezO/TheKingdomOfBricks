@@ -1,6 +1,5 @@
 @extends('layouts.adminApp')
 @section('title', __('admin.itemTitle'))
-@section('subtitle', $viewData['item']->getTitle())
 @section('content')
     <div class="card mb-3">
         <div class="row g-0">
