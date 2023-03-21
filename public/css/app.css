@@ -77,6 +77,8 @@ footer {
 }
 
 .card {
+  margin-top: 12px;
+  margin-bottom: 12px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px #FFFFFF;
   transition: all 0.3s ease-in-out;
