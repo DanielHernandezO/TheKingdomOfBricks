@@ -9,7 +9,7 @@ class UserMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
-        if (!auth()->user() || auth()->user()->role !== 'user') {
+        if (! auth()->user() || auth()->user()->role !== 'user') {
             abort(403, 'Unauthorized action.');
         }
 

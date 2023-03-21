@@ -11,7 +11,7 @@ use Illuminate\View\View;
 class ReviewController extends Controller
 {
     public function index(Request $request): View
-    {   
+    {
         $minRating = $request->query('min_rating', 0);
         $maxRating = $request->query('max_rating', 5);
         $reviews = Review::whereBetween('rating', [$minRating, $maxRating])
@@ -24,7 +24,7 @@ class ReviewController extends Controller
 
         return view('admin.review.index')->with('viewData', $viewData);
     }
-    
+
     public function show(string $id): View|RedirectResponse
     {
         try {

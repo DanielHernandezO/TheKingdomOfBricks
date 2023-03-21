@@ -41,5 +41,5 @@ return [
     'minRating' => 'Min rating:',
     'maxRating' => 'Max rating:',
     'filter' => 'Filter',
-    'applyFilter' => 'Apply filter'
+    'applyFilter' => 'Apply filter',
 ];
