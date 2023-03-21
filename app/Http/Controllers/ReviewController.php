@@ -16,8 +16,7 @@ class ReviewController extends Controller
         $maxRating = $request->query('max_rating', 5);
         $reviews = Review::whereBetween('rating', [$minRating, $maxRating])
                            ->orderBy('rating', 'asc')
-                           ->paginate(5);
-
+                           ->paginate(10);
         $viewData = [];
         $viewData['reviews'] = $reviews;
         $viewData['minRating'] = $minRating;
