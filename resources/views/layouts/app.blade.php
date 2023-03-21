@@ -46,7 +46,7 @@
             <div class="container">
             <small>
                {{__('commons.copyright')}} - <a class="text-reset fw-bold text-decoration-none" target="_blank"
-                href="">
+                href="https://github.com/DanielHernandezO/TheKingdomOfBricks">
                 {{__('commons.devs')}}
                 </a>
             </small>
