@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Review;
 use Exception;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ReviewController extends Controller
@@ -17,11 +18,13 @@ class ReviewController extends Controller
                            ->orderBy('rating', 'asc')
                            ->paginate(10);
         $viewData = [];
-        $viewData['reviews'] = Review::all();
+        $viewData['reviews'] = $reviews;
+        $viewData['minRating'] = $minRating;
+        $viewData['maxRating'] = $maxRating;
 
         return view('admin.review.index')->with('viewData', $viewData);
     }
-
+    
     public function show(string $id): View|RedirectResponse
     {
         try {

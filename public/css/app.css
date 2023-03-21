@@ -7,7 +7,7 @@
 }
 
 .bg-primary {
-  background-color: #c9900a !important;
+  background-color: #15507a !important;
 }
 nav{
   font-weight: 700;
@@ -49,8 +49,8 @@ nav{
 
 /* Estilos para los botones */
 .btn-primary {
-  background-color: #141e25;
-  border-color: #141e25;
+  background-color: #15507a;
+  border-color: #15507a;
 }
 
 .btn-primary:hover {
@@ -63,6 +63,17 @@ footer {
   color: #fff;
   padding: 1rem;
   text-align: center;
+}
+
+.footer {
+  position: fixed-bottom;
+  bottom: 0;
+  width: 100%;
+}
+
+.emoji {
+  font-size: 70px;
+  padding: 5vw;
 }
 
 @keyframes fadeInUp {
@@ -87,7 +98,7 @@ footer {
 .card:hover {
   transform: translateY(-5px);
 }
-
+x
 .card-img-top {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -113,3 +124,23 @@ footer {
   margin-right: 5px;
 }
 
+.pagination .page-link {
+  background-color: #e6ebef;
+  border-color: #1e71ad;
+  color: #15507a;
+}
+
+.pagination .page-link:hover {
+  background-color: #15507a;
+  border-color: #15507a;
+  color: #fff;
+}
+
+.pagination .page-link:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #15507a;
+  color: #ffffff;
+}
