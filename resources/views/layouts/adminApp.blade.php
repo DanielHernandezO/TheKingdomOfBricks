@@ -37,13 +37,7 @@
         </div>
     </nav>
 
-    <header class="masthead bg-primary text-white text-center py-4">
-        <div class="container d-flex align-items-center flex-column">
-            <h2>@yield('subtitle', __('commons.subtitle'))</h2>
-        </div>
-    </header>
-    <!-- header -->
-
+    <!-- content -->
     <div class="container my-4">
         @yield('content')
     </div>

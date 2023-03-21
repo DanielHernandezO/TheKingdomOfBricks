@@ -1,6 +1,5 @@
 @extends('layouts.adminApp')
 @section('title', __('admin.itemTitle'))
-@section('subtitle', __('admin.listItems'))
 @section('content')
     <div class="row">
         @foreach ($viewData['items'] as $item)
