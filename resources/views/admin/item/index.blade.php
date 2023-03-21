@@ -20,4 +20,7 @@
             </div>
         @endforeach
     </div>
+    <div class="d-flex justify-content-center">
+        {{ $viewData["items"]->render('pagination::bootstrap-4') }}
+    </div>
 @endsection

@@ -14,7 +14,7 @@ class ItemController extends Controller
     public function index(): View
     {
         $viewData = [];
-        $viewData['items'] = Item::all();
+        $viewData['items'] = Item::paginate(8);
 
         return view('admin.item.index')->with('viewData', $viewData);
     }
