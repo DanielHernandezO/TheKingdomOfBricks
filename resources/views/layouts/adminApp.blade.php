@@ -23,17 +23,11 @@
           <a class="nav-link active" href="{{ route('admin.item.create') }}">{{__('admin.createItem')}}</a>
           <a class="nav-link active" href="{{ route('admin.item.index') }}">{{__('admin.listItems')}}</a>
           <a class="nav-link active" href="{{ route('admin.review.index') }}">{{__('admin.listReviews')}}</a>
-
         </div>
       </div>
     </div>
   </nav>
 
-  <header class="masthead bg-primary text-white text-center py-4">
-    <div class="container d-flex align-items-center flex-column">
-      <h2>@yield('subtitle', __('commons.subtitle'))</h2>
-    </div>
-  </header>
   <!-- header -->
 
   <div class="container my-4">
