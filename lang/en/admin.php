@@ -13,6 +13,6 @@ return [
     //Review
     'createReview' => 'Create review',
     'reviewCreated' => 'Review created successfully',
-    'listReviews' => 'List of reviews',
+    'listReviews' => 'List reviews',
     'reviewTitle' => 'Reviews section',
 ];
