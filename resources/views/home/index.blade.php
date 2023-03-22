@@ -2,7 +2,7 @@
 @section('content')
 <div class="jumbotron">
     <h1 class="display-4"> {{__('commons.brand')}}</h1>
-    <p class="description">{{__('commons.welcomeDescription')}}</p>
+    <h4 class="description">{{__('commons.welcomeDescription')}}</h4>
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6 mb-6">

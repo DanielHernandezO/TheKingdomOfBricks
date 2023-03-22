@@ -16,8 +16,8 @@ class ItemController extends Controller
         $items = Item::query();
         $requestedType = $request->input('type');
 
-        if ($requestedType != "") {
-            $items = $items->where('type','=', $requestedType);
+        if ($requestedType != '') {
+            $items = $items->where('type', '=', $requestedType);
         }
 
         $viewData = [];

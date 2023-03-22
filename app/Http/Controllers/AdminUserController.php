@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -15,7 +14,7 @@ class AdminUserController extends Controller
         $users = User::query();
 
         $requestedId = $request->input('id');
-        if ($requestedId != "") {
+        if ($requestedId != '') {
             $users = User::where('id', '=', $requestedId);
         }
 

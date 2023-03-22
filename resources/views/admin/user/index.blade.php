@@ -7,7 +7,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        <label for="id">{{ __('commons.id') }}</label>
+        <label class="text-light" for="id">{{ __('commons.id') }}</label>
         <input type="number" name="id" id="id" class="form-control" value="{{ $viewData['id'] }}" min="1">
       </div>
       <div class="col-sm mt-3">
@@ -18,8 +18,8 @@
 </form>
 
 <!-- Show reviews-->
-<table class="table mt-3">
-  <thead class="table-dark">
+<table class="table table-light mt-3">
+  <thead class="table-light">
     <tr>
       <th scope="col">{{ __('commons.id') }}</th>
       <th scope="col">{{ __('commons.name') }}</th>
