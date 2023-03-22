@@ -21,7 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'type',
+        'role',
     ];
 
     /**
@@ -43,8 +43,38 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getId(): string
+    {
+        return $this->attributes['id'];
+    }
+
     public function getRole(): string
     {
         return $this->attributes['role'];
+    }
+
+    public function setRole(string $role): void
+    {
+        $this->attributes['role'] = $role;
+    }
+
+    public function getName(): string
+    {
+        return $this->attributes['name'];
+    }
+
+    public function setName(string $name): void
+    {
+        $this->attributes['name'] = $name;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->attributes['email'];
+    }
+
+    public function setEmail(string $email): void
+    {
+        $this->attributes['email'] = $email;
     }
 }
