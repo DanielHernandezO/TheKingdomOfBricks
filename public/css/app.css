@@ -1,0 +1,146 @@
+.bg-secondary {
+  background-image: linear-gradient(#141e25,#141e30);
+}
+
+.copyright {
+  background-image: linear-gradient(#141e25,#141e30);
+}
+
+.bg-primary {
+  background-color: #15507a !important;
+}
+nav{
+  font-weight: 700;
+}
+
+.img-card{
+  height: 18vw;
+  object-fit: cover;
+}
+
+.description{
+  color:#FFF;
+  text-shadow: 0px 0px 10px #000;
+}
+
+.jumbotron {
+  background-image: url('/images/background.jpg');
+  background-color: rgba(0, 0, 0, 1);
+  background-position: center center;
+  background-size: cover;
+  color: #D3D3D3;
+  text-align: center;
+  padding: 4rem 2rem;
+  animation: fadeInUp 1s;
+}
+
+.jumbotron h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color:#FFF;
+  text-shadow: 0px 0px 10px #000;
+}
+
+.jumbotron p {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+/* Estilos para los botones */
+.btn-primary {
+  background-color: #15507a;
+  border-color: #15507a;
+}
+
+.btn-primary:hover {
+  background-color: #141e30;
+  border-color: #141e30;
+}
+
+footer {
+  background-image: linear-gradient(#141e25,#141e30);
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+.footer {
+  position: fixed-bottom;
+  bottom: 0;
+  width: 100%;
+}
+
+.emoji {
+  font-size: 70px;
+  padding: 5vw;
+}
+
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(50px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.card {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #FFFFFF;
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+x
+.card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 100%;
+  height: 45vw;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-weight: bold;
+  color: #000000;
+}
+
+.card-text {
+  margin-bottom: 20px;
+}
+
+.fa-info-circle {
+  margin-right: 5px;
+}
+
+.pagination .page-link {
+  background-color: #e6ebef;
+  border-color: #1e71ad;
+  color: #15507a;
+}
+
+.pagination .page-link:hover {
+  background-color: #15507a;
+  border-color: #15507a;
+  color: #fff;
+}
+
+.pagination .page-link:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #15507a;
+  color: #ffffff;
+}
