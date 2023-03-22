@@ -53,5 +53,7 @@
       @endif
   </tbody>
 </table>
-{{ $viewData["reviews"]->render('pagination::bootstrap-4') }}
+<div class="d-flex justify-content-center">
+  {{ $viewData["reviews"]->render('pagination::bootstrap-4') }}
+</div>
 @endsection

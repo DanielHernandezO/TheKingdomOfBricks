@@ -11,6 +11,11 @@ return [
     'pieces' => 'pieces',
     'stock' => 'stock',
 
+    //User atts
+    'name' => 'Name',
+    'role' => 'Role',
+    'email' => 'Email',
+
     //Item types
     'head' => 'Head',
     'chest' => 'Chest',
