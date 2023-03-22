@@ -36,7 +36,7 @@
       @foreach ($viewData["reviews"] as $review)
       <tr>
         <td>{{ $review->getId() }}</td>
-        <td>{{  __('commons.ratingSpan', ['value' => $review->getRating()]) }}</td>
+        <td>{{ $review->getRating() }}</td>
         <td>
           <a href=" {{ route('admin.review.show', ['id'=> $review->getId()]) }}"
           class="btn bg-primary text-white">                            
