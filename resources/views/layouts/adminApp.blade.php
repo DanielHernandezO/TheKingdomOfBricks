@@ -23,6 +23,7 @@
                     <a class="nav-link active" href="{{ route('admin.item.create') }}">{{__('admin.createItem')}}</a>
                     <a class="nav-link active" href="{{ route('admin.item.index') }}">{{__('admin.listItems')}}</a>
                     <a class="nav-link active" href="{{ route('admin.review.index') }}">{{__('admin.listReviews')}}</a>
+                    <a class="nav-link active" href="{{ route('admin.user.index') }}">{{__('admin.listUsers')}}</a>
                     <div class="vr bg-white mx-2 d-none d-lg-block"></div>
                     @guest
                     @else
