@@ -2,8 +2,8 @@
 @section('title', __('admin.reviewTitle'))
 @section('content')
 
-  <!-- Filter form -->
-  <form action="{{ route('admin.review.index') }}" method="GET">
+<!-- Filter form -->
+<form action="{{ route('admin.review.index') }}" method="GET">
   <div class="container">
     <div class="row">
       <div class="col-sm">
@@ -19,7 +19,6 @@
       </div>
     </div>
   </div>
-  
 </form>
 
 

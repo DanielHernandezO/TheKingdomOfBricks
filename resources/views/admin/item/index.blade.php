@@ -1,6 +1,29 @@
 @extends('layouts.adminApp')
 @section('title', __('admin.itemTitle'))
 @section('content')
+
+    <!-- Filter form -->
+    <form class="form-inline" action="{{ route('admin.item.index') }}" method="GET">
+
+        <div class="container">
+            <div class="row">
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="type" class="mr-2">{{ __('commons.inputLabel', ['att' => __('commons.type')]) }}</label>
+                    <select name="type" id="type" class="form-control" value="{{ $viewData['type'] }}" selected>
+                        <option value="" @if($viewData['type'] == '') selected @endif>{{__('commons.all')}}</option>
+                        <option value="head" @if($viewData['type'] == 'head') selected @endif>{{__('commons.head')}}</option>
+                        <option value="chest" @if($viewData['type'] == 'chest') selected @endif>{{__('commons.chest')}}</option>
+                        <option value="legs" @if($viewData['type'] == 'legs') selected @endif>{{__('commons.legs')}}</option>
+                        <option value="box" @if($viewData['type'] == 'box') selected @endif>{{__('commons.box')}}</option>
+                    </select>
+                </div>
+                <div class="col-sm mt-3">
+                    <button type="submit" class="btn btn-primary mt-2">{{ __('commons.filter') }}</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- Show items-->
     <div class="row">
         @foreach ($viewData['items'] as $item)
             <div class="col-md-4 col-lg-3 mb-2">
