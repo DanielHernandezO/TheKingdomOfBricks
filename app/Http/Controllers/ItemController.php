@@ -11,10 +11,18 @@ use Illuminate\View\View;
 
 class ItemController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
+        $items = Item::query();
+        $requestedType = $request->input('type');
+
+        if ($requestedType != "") {
+            $items = $items->where('type','=', $requestedType);
+        }
+
         $viewData = [];
-        $viewData['items'] = Item::paginate(8);
+        $viewData['type'] = $requestedType;
+        $viewData['items'] = $items->paginate(8);
 
         return view('admin.item.index')->with('viewData', $viewData);
     }

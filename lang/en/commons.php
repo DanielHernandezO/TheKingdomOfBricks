@@ -42,4 +42,6 @@ return [
     'maxRating' => 'Max rating:',
     'filter' => 'Filter',
     'applyFilter' => 'Apply filter',
+    'inputLabel' => ':Att: ',
+    'all' => 'All',
 ];
