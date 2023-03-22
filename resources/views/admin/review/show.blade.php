@@ -14,8 +14,8 @@
     </div>
     <div class="col-md-8 align-items-center d-flex">
       <div class="card-body">
-          <p class="card-text">{{  __('commons.ratingSpan', ['value' => $viewData['review']->getRating()]) }} </p> 
-          <p class="card-text">{{ __('commons.commentSpan', ['value' => $viewData['review']->getComment()]) }}</p> 
+          <p class="card-text">{{ __('commons.inputLabelWithValue', ['att' => __('commons.rating'), 'val' => $viewData['review']->getRating()])}}</p> 
+          <p class="card-text">{{ __('commons.inputLabelWithValue', ['att' => __('commons.comment'), 'val' => $viewData['review']->getComment()])}}</p> 
           <form method="POST" action="{{ route('admin.review.delete', ['id'=> $viewData['review']->getId()]) }}">
           @csrf
           @method('DELETE')
