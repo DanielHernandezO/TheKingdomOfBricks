@@ -10,6 +10,7 @@ return [
     'guide' => 'guide',
     'pieces' => 'pieces',
     'stock' => 'stock',
+    'image' => 'Insert image',
 
     //Item types
     'head' => 'Head',
