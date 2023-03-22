@@ -7,11 +7,11 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        <label for="min_rating">{{ __('commons.minRating') }}</label>
+        <label class= "text-light" for="min_rating">{{ __('commons.minRating') }}</label>
         <input type="number" name="min_rating" id="min_rating" class="form-control" value="{{ $viewData['minRating'] }}" min="0" max="5" required>
       </div>
       <div class="col-sm">
-        <label for="max_rating">{{ __('commons.maxRating') }}</label>
+        <label class= "text-light"  for="max_rating">{{ __('commons.maxRating') }}</label>
         <input type="number" name="max_rating" id="max_rating" class="form-control" value="{{ $viewData['maxRating'] }}" min="0" max="5" required>
       </div>
       <div class="col-sm mt-3">
@@ -23,8 +23,8 @@
 
 
 <!-- Show reviews-->
-<table class="table mt-3">
-  <thead class="table-dark">
+<table class="table table-light mt-3">
+  <thead class="table-ligth">
     <tr>
       <th scope="col">{{ __('commons.id') }}</th>
       <th scope="col">{{ __('commons.rating') }}</th>
@@ -53,5 +53,7 @@
       @endif
   </tbody>
 </table>
-{{ $viewData["reviews"]->render('pagination::bootstrap-4') }}
+<div class="d-flex justify-content-center">
+  {{ $viewData["reviews"]->render('pagination::bootstrap-4') }}
+</div>
 @endsection

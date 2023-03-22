@@ -32,6 +32,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/reviews', 'App\Http\Controllers\ReviewController@index')->name('admin.review.index');
     Route::get('/admin/reviews/{id}', 'App\Http\Controllers\ReviewController@show')->name('admin.review.show');
     Route::delete('/admin/reviews/{id}', 'App\Http\Controllers\ReviewController@delete')->name('admin.review.delete');
+
+    Route::get('/admin/users', 'App\Http\Controllers\AdminUserController@index')->name('admin.user.index');
+    Route::delete('/admin/users/{id}', 'App\Http\Controllers\AdminUserController@delete')->name('admin.user.delete');
 });
 
 Auth::routes();

@@ -7,8 +7,8 @@
 
         <div class="container">
             <div class="row">
-                <div class="form-group mx-sm-3 mb-2">
-                    <label for="type" class="mr-2">{{ __('commons.inputLabel', ['att' => __('commons.type')]) }}</label>
+                <div class="col-sm form-group mx-sm-3 mb-2">
+                    <label class="text-light" for="type" class="mr-2">{{ __('commons.inputLabel', ['att' => __('commons.type')]) }}</label>
                     <select name="type" id="type" class="form-control" value="{{ $viewData['type'] }}" selected>
                         <option value="" @if($viewData['type'] == '') selected @endif>{{__('commons.all')}}</option>
                         <option value="head" @if($viewData['type'] == 'head') selected @endif>{{__('commons.head')}}</option>

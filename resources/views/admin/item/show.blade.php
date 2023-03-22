@@ -10,18 +10,18 @@
             </div>
             <div class="col-md-8 align-items-center d-flex">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $viewData['item']->getTitle() }}</h5>
-                    <p class="card-text">{{ $viewData['item']->getId() }}</p>
-                    <p class="card-text">{{ __('commons'.'.'.$viewData['item']->getType()) }}</p>
-                    <p class="card-text">{{ $viewData['item']->getPrice() }}</p>
-                    <p class="card-text">{{ $viewData['item']->getGuide() }}</p>
-                    <p class="card-text">{{ $viewData['item']->getPieces() }}</p>
+                    <h5 class="card-title">{{ __('commons.inputLabelWithValue', ['att' => __('commons.title'), 'val' => $viewData['item']->getTitle()])}}</h5>
+                    <p class="card-text">{{ __('commons.inputLabelWithValue', ['att' => __('commons.id'), 'val' => $viewData['item']->getId()])}}</p>
+                    <p class="card-text">{{ __('commons.inputLabelWithValue', ['att' => __('commons.type'), 'val' => $viewData['item']->getType()])}}</p>
+                    <p class="card-text">{{ __('commons.inputLabelWithValue', ['att' => __('commons.price'), 'val' => $viewData['item']->getPrice()])}}</p>
+                    <p class="card-text">{{ __('commons.inputLabelWithValue', ['att' => __('commons.guide'), 'val' => $viewData['item']->getGuide()])}}</p>
+                    <p class="card-text">{{ __('commons.inputLabelWithValue', ['att' => __('commons.pieces'), 'val' => $viewData['item']->getPieces()])}}</p>
                     <p  @if ($viewData['item']->getStock() == 0)
                             class="card-text text-danger"
                         @else
                             class="card-text"
                         @endif
-                    >{{ $viewData['item']->getStock() }}</p>
+                    >{{ __('commons.inputLabelWithValue', ['att' => __('commons.stock'), 'val' => $viewData['item']->getStock()])}}</p>
                     <form method="POST" action="{{ route('admin.item.delete', ['id'=> $viewData['item']->getId()]) }}">
                         @csrf
                         @method("DELETE")
