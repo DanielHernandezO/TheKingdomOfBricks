@@ -10,7 +10,7 @@ return [
     'guide' => 'guide',
     'pieces' => 'pieces',
     'stock' => 'stock',
-    'image' => 'Insert image',
+    'image' => 'image',
 
     //User atts
     'name' => 'Name',
@@ -49,4 +49,6 @@ return [
     'inputLabel' => ':Att: ',
     'inputLabelWithValue' => ':Att: :val',
     'all' => 'All',
+    'selectFile' => 'Select file',
+    'enterImage' => 'Enter image'
 ];
