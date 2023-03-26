@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Item extends Model
 {
@@ -20,6 +22,7 @@ class Item extends Model
      * $this->attributes['pieces'] - int - contains the item number of pieces
      * $this->attributes['stock'] - int - contains the item stock
      * $this->attributes['image'] - string - contains the item image path
+     * $this->attributes['reviews'] - Reviews[] - contains the reviews related to an item
      */
     protected $fillable = ['title', 'type', 'price', 'guide', 'pieces', 'stock', 'image'];
 
@@ -109,4 +112,20 @@ class Item extends Model
     {
         $this->attributes['image'] = $image;
     }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function setReviews(Collection $reviews): void
+    {
+        $this->reviews = $reviews;
+    }
+
 }
