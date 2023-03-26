@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Review extends Model
 {
@@ -15,6 +16,7 @@ class Review extends Model
      * $this->attributes['id'] - int - contains the review primary key (id)
      * $this->attributes['rating'] - int - contains the rating of the review
      * $this->attributes['comment'] - string - contains the review comment
+     * $this->attributes['item'] - Item - contains the associated Item
      */
     protected $fillable = ['rating', 'comment'];
 
@@ -46,6 +48,21 @@ class Review extends Model
     public function setComment(string $comment): void
     {
         $this->attributes['comment'] = $comment;
+    }
+
+    public function item(): BelongsTo
+    {
+        return $this->belongsTo(Item::class);
+    }
+
+    public function getItem(): Item
+    {
+        return $this->item;
+    }
+
+    public function setItem($item): void
+    {
+        $this->item = $item;
     }
 
     public static function validate(Request $request): void
