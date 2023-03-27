@@ -23,7 +23,7 @@ class OrderItem extends Model
         return $this->attributes['quantity'];
     }
 
-    public function setTotalAmount(int $quantity): void
+    public function setQuantity(int $quantity): void
     {
         $this->attributes['quantity'] = $quantity;
     }
