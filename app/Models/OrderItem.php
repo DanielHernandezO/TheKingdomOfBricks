@@ -56,7 +56,7 @@ class OrderItem extends Model
         return $this->item;
     }
 
-    public function setItem(item $item): void
+    public function setItem(Item $item): void
     {
         $this->item = $item;
     }
