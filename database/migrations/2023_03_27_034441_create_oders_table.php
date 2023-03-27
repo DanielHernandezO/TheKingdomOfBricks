@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->integer("total_amount");
             $table->string("Status");
-            $table->date("date");
             $table->timestamps();
         });
     }

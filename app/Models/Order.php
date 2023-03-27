@@ -27,17 +27,30 @@ class Order extends Model
     {
         return $this->attributes['total_amount'];
     }
+
     public function setTotalAmount(int $totalAmount): void
     {
         $this->attributes['total_amount'] = $totalAmount;
     }
+
     public function getStatus(): string
     {
         return $this->attributes['status'];
     }
+
     public function setStatus(string $status): void
     {
         $this->attributes['status'] = $status;
+    }
+
+    public function getCreatedAt(): string
+    {
+        return $this->attributes['created_at'];
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return $this->attributes['updated_at'];
     }
 }
 
