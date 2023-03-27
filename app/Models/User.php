@@ -85,7 +85,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Review::class);
     }
-    
+
     public function getReviews(): Collection
     {
         return $this->reviews;
@@ -95,7 +95,7 @@ class User extends Authenticatable
     {
         $this->reviews = $reviews;
     }
-    
+
     public function character(): HasOne
     {
         return $this->hasOne(Character::class);
@@ -115,7 +115,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
-    
+
     public function getOrders(): Collection
     {
         return $this->orders;
@@ -125,5 +125,4 @@ class User extends Authenticatable
     {
         $this->orders = $orders;
     }
-
 }
