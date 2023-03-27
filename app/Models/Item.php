@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
@@ -128,7 +129,7 @@ class Item extends Model
         $this->reviews = $reviews;
     }
 
-    public function characters()
+    public function characters(): BelongsToMany
     {
         return $this->belongsToMany(Character::class, 'character_items', 'item_id', 'character_id')
             ->withPivot('type');
