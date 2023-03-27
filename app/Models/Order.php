@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,7 +24,7 @@ class Order extends Model
         return $this->attributes['id'];
     }
 
-    public function getTotalAmount(): string
+    public function getTotalAmount(): int
     {
         return $this->attributes['total_amount'];
     }
