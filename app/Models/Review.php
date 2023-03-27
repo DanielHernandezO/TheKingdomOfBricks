@@ -60,7 +60,7 @@ class Review extends Model
         return $this->item;
     }
 
-    public function setItem($item): void
+    public function setItem(Item $item): void
     {
         $this->item = $item;
     }
@@ -75,7 +75,7 @@ class Review extends Model
         return $this->user;
     }
 
-    public function setUser($user): void
+    public function setUser(User $user): void
     {
         $this->user = $user;
     }

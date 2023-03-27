@@ -37,4 +37,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/admin/users/{id}', 'App\Http\Controllers\AdminUserController@delete')->name('admin.user.delete');
 });
 
+Route::middleware(['auth', 'user'])->group(function () {
+    Route::get('/user/{id}/character', 'App\Http\Controllers\CharacterController@debug')->name('character.debug');
+});
+    
 Auth::routes();

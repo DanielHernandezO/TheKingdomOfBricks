@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Collection;
@@ -93,5 +94,20 @@ class User extends Authenticatable
     public function setReviews(Collection $reviews): void
     {
         $this->reviews = $reviews;
+    }
+    
+    public function character(): HasOne
+    {
+        return $this->hasOne(Character::class);
+    }
+
+    public function getCharacter(): Character
+    {
+        return $this->character;
+    }
+
+    public function setCharacter(Character $character): void
+    {
+        $this->character = $character;
     }
 }

@@ -128,4 +128,9 @@ class Item extends Model
         $this->reviews = $reviews;
     }
 
+    public function characters()
+    {
+        return $this->belongsToMany(Character::class, 'character_items', 'item_id', 'character_id')
+            ->withPivot('type');
+    }
 }
