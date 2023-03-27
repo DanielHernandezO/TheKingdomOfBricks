@@ -70,7 +70,7 @@ class Review extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function getUser(): Item
+    public function getUser(): User
     {
         return $this->user;
     }

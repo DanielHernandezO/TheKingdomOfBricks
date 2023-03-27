@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('type');
             $table->integer('price');
-            $table->string('guide');
+            $table->text('guide');
             $table->integer('pieces');
             $table->integer('stock');
             $table->string('image');
