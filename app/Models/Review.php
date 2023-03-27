@@ -65,6 +65,21 @@ class Review extends Model
         $this->item = $item;
     }
 
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    public function setUser($user): void
+    {
+        $this->user = $user;
+    }
+
     public static function validate(Request $request): void
     {
         $request->validate([
