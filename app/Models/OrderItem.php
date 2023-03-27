@@ -8,7 +8,7 @@ class OrderItem extends Model
 {
     /**
      * ORDERITEM ATTRIBUTES
-     * $this->attributes['id'] - int - contains the review primary key (id)
+     * $this->attributes['id'] - int - contains the OrderItem primary key (id)
      * $this->attributes['quantity'] - int - contains the amount of units to buy
      */
     protected $fillable = ['quantity'];
