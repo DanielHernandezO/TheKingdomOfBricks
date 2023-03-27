@@ -11,6 +11,8 @@ class OrderItem extends Model
      * ORDERITEM ATTRIBUTES
      * $this->attributes['id'] - int - contains the OrderItem primary key (id)
      * $this->attributes['quantity'] - int - contains the amount of units to buy
+     * $this->attributes['order'] - Order - contains the associated Order
+     * $this->attributes['item'] - Item - contains the associated Item
      */
     protected $fillable = ['quantity'];
 
@@ -28,6 +30,7 @@ class OrderItem extends Model
     {
         $this->attributes['quantity'] = $quantity;
     }
+
     public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);
@@ -41,5 +44,20 @@ class OrderItem extends Model
     public function setOrder(Order $order): void
     {
         $this->order = $order;
+    }
+
+    public function item(): BelongsTo
+    {
+        return $this->belongsTo(Item::class);
+    }
+
+    public function getItem(): Item
+    {
+        return $this->item;
+    }
+
+    public function setItem(item $item): void
+    {
+        $this->item = $item;
     }
 }

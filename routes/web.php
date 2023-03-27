@@ -42,5 +42,5 @@ Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/character', 'App\Http\Controllers\CharacterController@editView')->name('character.editView');
     Route::put('/character/update', 'App\Http\Controllers\CharacterController@update')->name('character.update');
 });
-    
+
 Auth::routes();

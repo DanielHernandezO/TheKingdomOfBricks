@@ -7,18 +7,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Collection;
 
-
 class Order extends Model
 {
     /**
      * Order ATTRIBUTES
      * $this->attributes['id'] - int - contains the order primary key (id)
-     * $this->attributes['total_amount'] - int - contains the total amount of the order 
+     * $this->attributes['total_amount'] - int - contains the total amount of the order
      * $this->attributes['status'] - string - contains the status of the order (PENDING,PAID,REFUNDED)
      * $this->attributes['user'] - User - contains the associated User
-     * $this->attributes['created_at'] - string - contains the creation date 
+     * $this->attributes['created_at'] - string - contains the creation date
      * $this->attributes['update_at'] - string - contains the date of the last update
-
      */
     protected $fillable = ['id', 'total_amount', 'status'];
 
@@ -56,6 +54,7 @@ class Order extends Model
     {
         return $this->attributes['updated_at'];
     }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -86,5 +85,3 @@ class Order extends Model
         $this->orderItem = $orderItem;
     }
 }
-
-

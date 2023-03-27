@@ -50,5 +50,5 @@ return [
     'inputLabelWithValue' => ':Att: :val',
     'all' => 'All',
     'selectFile' => 'Select file',
-    'enterImage' => 'Enter image'
+    'enterImage' => 'Enter image',
 ];

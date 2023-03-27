@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Http\Request;
 
 class Item extends Model
 {
@@ -133,5 +133,20 @@ class Item extends Model
     {
         return $this->belongsToMany(Character::class, 'character_items', 'item_id', 'character_id')
             ->withPivot('type');
+    }
+
+    public function orderItem(): HasMany
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
+    public function getOrderItem(): Collection
+    {
+        return $this->orderItem;
+    }
+
+    public function setOrderItem(Collection $orderItem): void
+    {
+        $this->orderItem = $orderItem;
     }
 }
