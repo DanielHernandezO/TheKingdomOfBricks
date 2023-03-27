@@ -38,7 +38,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 Route::middleware(['auth', 'user'])->group(function () {
-    Route::get('/user/{id}/character', 'App\Http\Controllers\CharacterController@debug')->name('character.debug');
 });
     
 Auth::routes();
