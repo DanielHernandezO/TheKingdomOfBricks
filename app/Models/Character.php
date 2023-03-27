@@ -44,7 +44,7 @@ class Character extends Model
         return $this->items()->wherePivot('type', 'head')->first();
     }
 
-    public function setHead(Item $item)
+    public function setHead(Item $item): void
     {
         $this->items()->syncWithoutDetaching([
             $item->id => ['type' => 'head'],
@@ -56,7 +56,7 @@ class Character extends Model
         return $this->items()->wherePivot('type', 'chest')->first();
     }
 
-    public function setChest(Item $item)
+    public function setChest(Item $item): void
     {
         $this->items()->syncWithoutDetaching([
             $item->id => ['type' => 'chest'],
@@ -68,7 +68,7 @@ class Character extends Model
         return $this->items()->wherePivot('type', 'legs')->first();
     }
 
-    public function setLegs(Item $item)
+    public function setLegs(Item $item): void
     {
         $this->items()->syncWithoutDetaching([
             $item->id => ['type' => 'legs'],
