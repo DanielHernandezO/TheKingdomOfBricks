@@ -1,0 +1,22 @@
+name: Check Styles
+
+on: [push, pull_request]
+
+jobs:
+  check-styles:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1.2'
+
+    - name: Install dependencies
+      run: composer install --no-interaction --prefer-dist
+
+    - name: Run PHP Code Sniffer
+      run: vendor/bin/phpcs
