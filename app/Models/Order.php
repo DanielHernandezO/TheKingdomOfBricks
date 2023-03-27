@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
+
 
 class Order extends Model
 {
@@ -67,5 +70,21 @@ class Order extends Model
     {
         $this->user = $user;
     }
+
+    public function orderItem(): HasMany
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
+    public function getOrderItem(): Collection
+    {
+        return $this->orderItem;
+    }
+
+    public function setOrderItem(Collection $orderItem): void
+    {
+        $this->orderItem = $orderItem;
+    }
 }
+
 
