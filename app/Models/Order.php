@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     /**
-     * REVIEW ATTRIBUTES
+     * Order ATTRIBUTES
      * $this->attributes['id'] - int - contains the order primary key (id)
      * $this->attributes['total_amount'] - int - contains the total amount of the order 
      * $this->attributes['status'] - string - contains the status of the order (PENDING,PAID,REFUNDED)
-     * $this->attributes['created_at'] - date - contains the creation date 
-     * $this->attributes['update_at'] - date - contains the date of the last update
+     * $this->attributes['created_at'] - string - contains the creation date 
+     * $this->attributes['update_at'] - string - contains the date of the last update
 
      */
     protected $fillable = ['id', 'total_amount', 'status'];
