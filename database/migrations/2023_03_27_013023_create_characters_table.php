@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('characters', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
+            $table->string('name')->default('default');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
         });
     }
