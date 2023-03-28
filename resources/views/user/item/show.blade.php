@@ -33,6 +33,31 @@
                 </div>
             </div>
         </div>
+
+        <div class="card">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <form method="POST" action="{{ route('user.item.review', ['itemId'=> $viewData['item']->getId()]) }}" class="w-100">
+                    @csrf
+                    <div class="form-group w-100">
+                        <label for="rating" class="card-subtitle text-muted">{{ __('commons.inputLabel', ['att' => __('commons.rating')]) }}</label>
+                        <select name="rating" id="rating" class="form-control">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                    <div class="form-group w-100">
+                        <label for="comment" class="card-subtitle text-muted">{{ __('commons.inputLabel', ['att' => __('commons.comment')]) }}</label>
+                        <textarea name="text" id="comment" rows="3" class="form-control"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">{{ __('actions.send') }}</button>
+                </form>
+            </div>
+        </div>
+
         <div class="row g-0">
             @foreach ($viewData['reviews'] as $review)
                 <div class="card mb-3">

@@ -62,7 +62,7 @@ class Review extends Model
 
     public function setItem(Item $item): void
     {
-        $this->item = $item;
+        $this->attributes['item_id'] = $item->getId();
     }
 
     public function user(): BelongsTo
@@ -77,7 +77,7 @@ class Review extends Model
 
     public function setUser(User $user): void
     {
-        $this->user = $user;
+        $this->attributes['user_id'] = $user->getId();
     }
 
     public static function validate(Request $request): void
