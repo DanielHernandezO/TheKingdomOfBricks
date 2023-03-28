@@ -26,7 +26,7 @@ return [
     //Devs
     'devs' => 'The KB devs',
 
-    //TODO Migrate actions to actions file
+    //actions
     'send' => 'Send',
     'delete' => 'Delete',
     'brand' => 'The kingdom of the bricks',
@@ -51,4 +51,8 @@ return [
     'all' => 'All',
     'selectFile' => 'Select file',
     'enterImage' => 'Enter image',
+
+    //pagination
+    'previous' => '&laquo; Previous',
+    'next' => 'Next &raquo;',
 ];

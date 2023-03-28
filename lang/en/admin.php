@@ -24,5 +24,6 @@ return [
     //User
     'listUsers' => 'List users',
 
+    //erroMessages
     'noUsersFound' => 'ID does not match any user.',
 ];

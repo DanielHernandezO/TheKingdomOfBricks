@@ -13,12 +13,21 @@ class Order extends Model
      * Order ATTRIBUTES
      * $this->attributes['id'] - int - contains the order primary key (id)
      * $this->attributes['total_amount'] - int - contains the total amount of the order
-     * $this->attributes['status'] - string - contains the status of the order (PENDING,PAID,REFUNDED)
-     * $this->attributes['user'] - User - contains the associated User
+     * $this->attributes['status'] - string - contains the status of the order (PENDING,PAID)
+     * $this->attributes['user_id'] - int - contains the associated User
      * $this->attributes['created_at'] - string - contains the creation date
      * $this->attributes['update_at'] - string - contains the date of the last update
      */
+
     protected $fillable = ['id', 'total_amount', 'status'];
+    
+    public static function validate($request)
+    {
+        $request->validate([
+            "total_amount" => "required|numeric",
+            "user_id" => "required|exists:users,id",
+        ]);
+    }
 
     public function getId(): int
     {
@@ -53,6 +62,16 @@ class Order extends Model
     public function getUpdatedAt(): string
     {
         return $this->attributes['updated_at'];
+    }
+
+    public function getUserid(): int
+    {
+        return $this->attributes['user_id'];
+    }
+
+    public function setUserId(int $userId): void
+    {
+        $this->attributes['user_id'] = $userId;
     }
 
     public function user(): BelongsTo

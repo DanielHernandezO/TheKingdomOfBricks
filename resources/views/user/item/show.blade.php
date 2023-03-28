@@ -23,11 +23,21 @@
                         @endif
                     >{{ __('commons.inputLabelWithValue', ['att' => __('commons.stock'), 'val' => $viewData['item']->getStock()])}}</p>
                     <div>
-                        <a href="" class="btn btn-secondary">{{__('actions.addReview')}}</a>
                         @if($viewData['item']->getStock()>0)
-                            <a href="" class="btn btn-primary">{{__('actions.addToCart')}}</a>
-                        @else
-                            <a href="" class="btn btn-primary disabled">{{__('actions.addToCart')}}</a>
+                        <form method="POST" action="{{ route('user.cart.add', ['id'=> $viewData['item']->getId()]) }}">
+                            <div class="row">
+                                @csrf
+                                <div class="col-auto">
+                                    <div class="input-group col-auto">
+                                        <div class="input-group-text">{{__('user.quantity')}}</div>
+                                        <input type="number" min="1" max={{$viewData['item']->getStock()}} class="form-control quantity-input" name="quantity" value="1">
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn bg-primary text-white" type="submit">{{__('user.addToCart')}}</button>
+                                </div>
+                            </div>
+                        </form>                        
                         @endif
                     </div>
                 </div>

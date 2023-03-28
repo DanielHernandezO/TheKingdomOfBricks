@@ -26,7 +26,7 @@
                         @csrf
                         @method("DELETE")
                         <div class="form-group mt-2">
-                            <input type="submit" class="btn btn-danger" value={{__('actions.delete')}}>
+                            <input type="submit" class="btn btn-danger" value={{__('commons.delete')}}>
                         </div>
                     </form>
                 </div>
