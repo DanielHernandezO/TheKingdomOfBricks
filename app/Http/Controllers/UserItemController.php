@@ -29,12 +29,13 @@ class UserItemController extends Controller
     {
         try {
             $viewData = [];
-            $item = Item::findOrFail($id);
+            $item = Item::with('reviews')->findOrFail($id);
+            $reviews = $item->reviews()->paginate(2);
             $viewData['item'] = $item;
-
+            $viewData['reviews'] = $reviews;
             return view('user.item.show')->with('viewData', $viewData);
         } catch (Exception $e) {
-            return redirect()->route('user.item.index');
+            return redirect()->route('home.index');
         }
     }
 

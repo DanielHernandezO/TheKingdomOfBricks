@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', __('admin.itemTitle'))
+@section('title', __('user.itemTitle'))
 @section('content')
     <div class="card mb-3">
         <div class="row g-0">
@@ -22,14 +22,29 @@
                             class="card-text"
                         @endif
                     >{{ __('commons.inputLabelWithValue', ['att' => __('commons.stock'), 'val' => $viewData['item']->getStock()])}}</p>
-                    <form method="" action="">
-                        @csrf
-                        <div class="form-group mt-2">
-                            <input type="submit" class="btn btn-danger" value={{__('actions.addtocart')}}>
-                        </div>
-                    </form>
+                    <div>
+                        <a href="" class="btn btn-secondary">{{__('actions.addReview')}}</a>
+                        @if($viewData['item']->getStock()>0)
+                            <a href="" class="btn btn-primary">{{__('actions.addToCart')}}</a>
+                        @else
+                            <a href="" class="btn btn-primary disabled">{{__('actions.addToCart')}}</a>
+                        @endif
+                    </div>
                 </div>
             </div>
+        </div>
+        <div class="row g-0">
+            @foreach ($viewData['reviews'] as $review)
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">{{ __('commons.inputLabelWithValue', ['att' => __('commons.rating'), 'val' => $review->getRating()])}}</h6>
+                        <p class="card-text">{{ __('commons.inputLabelWithValue', ['att' => __('commons.comment'), 'val' => $review->getComment()])}}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <div class="d-flex justify-content-center">
+            {{ $viewData["reviews"]->render('pagination::bootstrap-4') }}
         </div>
     </div>
 @endsection

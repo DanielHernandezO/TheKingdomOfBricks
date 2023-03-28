@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', __('admin.itemTitle'))
+@section('title', __('user.itemTitle'))
 @section('content')
 
     <!-- Filter form -->

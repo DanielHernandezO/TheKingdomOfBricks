@@ -3,5 +3,6 @@
 return [
     'send' => 'Send',
     'delete' => 'Delete',
-    'addtocart' => 'Add to cart',
+    'addToCart' => 'Add to cart',
+    'addReview' => 'Add review'
 ];
