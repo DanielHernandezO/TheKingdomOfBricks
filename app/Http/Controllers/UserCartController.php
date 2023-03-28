@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserCartController extends Controller
 {
-    public function index(Request $request): view
+    public function index(Request $request): View
     {
         $total =0;
         $itemsInCart =[];

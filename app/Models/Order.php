@@ -64,7 +64,7 @@ class Order extends Model
         return $this->attributes['updated_at'];
     }
 
-    public function getUserid(): int
+    public function getUserId(): int
     {
         return $this->attributes['user_id'];
     }
