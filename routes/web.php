@@ -42,8 +42,12 @@ Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/character', 'App\Http\Controllers\CharacterController@editView')->name('character.editView');
     Route::put('/character/update', 'App\Http\Controllers\CharacterController@update')->name('character.update');
 
-    //item
     Route::get('/items/{id}', 'App\Http\Controllers\UserItemController@show')->name('user.item.show');
+
+    Route::get('/cart', 'App\Http\Controllers\UserCartController@index')->name('user.cart.index');
+    Route::get('/cart/delete', 'App\Http\Controllers\UserCartController@delete')->name('user.cart.delete');
+    Route::post('/cart/add/{id}', 'App\Http\Controllers\UserCartController@add')->name('user.cart.add');
+    Route::get('/cart/purchase', 'App\Http\Controllers\UserCartController@purchase')->name('user.cart.purchase');
 });
 
 Auth::routes();
