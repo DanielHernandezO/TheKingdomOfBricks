@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
-
+Route::get('/items', 'App\Http\Controllers\UserItemController@index')->name('user.item.index');
 /*
 |--------------------------------------------------------------------------
 | Here you will found all the routes related to admin role. This middleware
@@ -41,6 +41,9 @@ Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/myProfile', 'App\Http\Controllers\UserController@profile')->name('user.profile');
     Route::get('/character', 'App\Http\Controllers\CharacterController@editView')->name('character.editView');
     Route::put('/character/update', 'App\Http\Controllers\CharacterController@update')->name('character.update');
+
+    //item
+    Route::get('/items/{id}', 'App\Http\Controllers\UserItemController@show')->name('user.item.show');
 });
 
 Auth::routes();
