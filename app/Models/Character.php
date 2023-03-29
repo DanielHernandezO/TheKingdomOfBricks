@@ -8,25 +8,30 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Character extends Model
-{
+{   
     use HasFactory;
 
+    /**
+     * CHARACTER ATTRIBUTES
+     * $this->attributes['id'] - int - contains the character primary key (id)
+     * $this->attributes['name'] - string - contains the character name
+     * $this->attributes['user'] - User - contains the character associated user
+     * $this->attributes['items'] - Item - contains the character associated items (head, chest, legs)
+     */
     protected $fillable = ['name'];
 
-    public function items(): BelongsToMany
+    public function getId(): int
     {
-        return $this->belongsToMany(Item::class, 'character_items', 'character_id', 'item_id')
-                    ->withPivot('type');
+        return $this->attributes['id'];
     }
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
-
     public function getUser(): User
     {
         return $this->user;
+    }
+
+    public function setUser(User $user): void
+    {
+        $this->user = $user;
     }
 
     public function getName(): string
@@ -46,9 +51,7 @@ class Character extends Model
 
     public function setHead(Item $item): void
     {
-        $this->items()->syncWithoutDetaching([
-            $item->id => ['type' => 'head'],
-        ]);
+        $this->items()->attach($item, ['type' => 'head']);
     }
 
     public function getChest(): Item
@@ -58,9 +61,7 @@ class Character extends Model
 
     public function setChest(Item $item): void
     {
-        $this->items()->syncWithoutDetaching([
-            $item->id => ['type' => 'chest'],
-        ]);
+        $this->items()->attach($item, ['type' => 'chest']);
     }
 
     public function getLegs(): Item
@@ -70,9 +71,7 @@ class Character extends Model
 
     public function setLegs(Item $item): void
     {
-        $this->items()->syncWithoutDetaching([
-            $item->id => ['type' => 'legs'],
-        ]);
+        $this->items()->attach($item, ['type' => 'legs']);
     }
 
     public function getTotalPrice(): int
@@ -80,5 +79,16 @@ class Character extends Model
         return $this->getHead()->getPrice() +
                $this->getChest()->getPrice() +
                $this->getLegs()->getPrice();
+    }
+
+    public function items(): BelongsToMany
+    {
+        return $this->belongsToMany(Item::class, 'character_items', 'character_id', 'item_id')
+                    ->withPivot('type');
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }
