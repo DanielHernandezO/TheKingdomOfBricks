@@ -19,10 +19,10 @@ class OrderItem extends Model
     public static function validate($request)
     {
         $request->validate([
-            "price" => "required|numeric|gt:0",
-            "quantity" => "required|numeric|gt:0",
-            "item_id" => "required|exists:products,id",
-            "order_id" => "required|exists:orders,id",
+            'price' => 'required|numeric|gt:0',
+            'quantity' => 'required|numeric|gt:0',
+            'item_id' => 'required|exists:products,id',
+            'order_id' => 'required|exists:orders,id',
         ]);
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Review;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -33,10 +34,26 @@ class UserItemController extends Controller
             $reviews = $item->reviews()->paginate(2);
             $viewData['item'] = $item;
             $viewData['reviews'] = $reviews;
+
             return view('user.item.show')->with('viewData', $viewData);
         } catch (Exception $e) {
             return redirect()->route('home.index');
         }
     }
 
+    public function addReview(Request $request): RedirectResponse
+    {
+        $requestedId = $request->route('itemId');
+        $userId = auth()->user()->getId();
+        $review = new Review([
+            'rating' => $request['rating'],
+            'comment' => $request['comment'],
+        ]);
+
+        $review->setUserId($userId);
+        $review->setItemId($requestedId);
+        $review->save();
+
+        return redirect()->back();
+    }
 }
