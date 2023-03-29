@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Interfaces\ImageStorage;
 use App\Models\Item;
 use Exception;
@@ -9,7 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class ItemController extends Controller
+class AdminItemController extends Controller
 {
     public function index(Request $request): View
     {

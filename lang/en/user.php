@@ -33,4 +33,10 @@ return [
     'goCart' => 'Go to Cart',
     'purchase' => 'Purchase',
     'removeCart' => 'Remove all products from Cart',
+
+    //My profile
+    'myProfile' => 'My profile',
+    'information' => 'My information',
+    'accountBalance' => 'Account balance',
+    'characterPrice' => 'Character total price'
 ];

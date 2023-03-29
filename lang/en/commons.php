@@ -52,8 +52,11 @@ return [
     'all' => 'All',
     'selectFile' => 'Select file',
     'enterImage' => 'Enter image',
+    'update' => 'Update',
+    'edit' => 'Edit',
 
     //pagination
     'previous' => '&laquo; Previous',
     'next' => 'Next &raquo;',
+
 ];
