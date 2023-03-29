@@ -40,14 +40,15 @@ class Item extends Model
     }
 
     public static function sumPricesByQuantities($items, $itemsInSession): int
-    {   
-        $total =0;
-        foreach($items as $item){
-            $total = $total + ($item->getPrice()*$itemsInSession[$item->getId() ]);
+    {
+        $total = 0;
+        foreach ($items as $item) {
+            $total = $total + ($item->getPrice() * $itemsInSession[$item->getId()]);
         }
+
         return $total;
     }
-    
+
     public function getId(): int
     {
         return $this->attributes['id'];

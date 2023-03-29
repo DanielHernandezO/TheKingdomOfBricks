@@ -5,56 +5,59 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\Order;
 use App\Models\OrderItem;
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class UserCartController extends Controller
 {
     public function index(Request $request): View
     {
-        $total =0;
-        $itemsInCart =[];
-        $itemsInSession = $request->session()->get("items");
-        if($itemsInSession){
+        $total = 0;
+        $itemsInCart = [];
+        $itemsInSession = $request->session()->get('items');
+        if ($itemsInSession) {
             $itemsInCart = Item::findMany(array_keys($itemsInSession));
-            $total = Item::sumPricesByQuantities($itemsInCart,$itemsInSession);
+            $total = Item::sumPricesByQuantities($itemsInCart, $itemsInSession);
         }
         $viewData = [];
-        $viewData["total"] = $total;
-        $viewData["items"] = $itemsInCart;
-        return view('user.cart.index')->with("viewData",$viewData);
+        $viewData['total'] = $total;
+        $viewData['items'] = $itemsInCart;
+
+        return view('user.cart.index')->with('viewData', $viewData);
     }
 
-    public function add(Request $request, $id):RedirectResponse
+    public function add(Request $request, $id): RedirectResponse
     {
         $items = $request->session()->get('items');
         $items[$id] = $request->input('quantity');
-        $request->session()->put('items',$items);
+        $request->session()->put('items', $items);
+
         return redirect()->route('user.cart.index');
     }
 
-    public function delete(Request $request):RedirectResponse
+    public function delete(Request $request): RedirectResponse
     {
         $request->session()->forget('items');
+
         return back();
     }
 
     public function purchase(Request $request): View|RedirectResponse
     {
         $itemsInSession = $request->session()->get('items');
-        if($itemsInSession){
+        if ($itemsInSession) {
             $userId = Auth::user()->getId();
             $order = new Order();
-            $order->setStatus("PENDING");
+            $order->setStatus('PENDING');
             $order->setUserId($userId);
             $order->setTotalAmount(0);
             $order->save();
 
-            $total=0;
+            $total = 0;
             $itemsInCart = Item::findMany(array_keys($itemsInSession));
-            foreach($itemsInCart as $item){
+            foreach ($itemsInCart as $item) {
                 $quantity = $itemsInSession[$item->getId()];
                 $orderItem = new OrderItem();
                 $orderItem->setQuantity($quantity);
@@ -62,25 +65,26 @@ class UserCartController extends Controller
                 $orderItem->setItemId($item->getId());
                 $orderItem->setOrderId($order->getId());
                 $orderItem->save();
-                $total=$total+($item->getPrice()*$quantity);
+                $total = $total + ($item->getPrice() * $quantity);
             }
             $order->setTotalAmount($total);
             $userBalance = Auth::user()->getAccountBalance();
-            if($userBalance>=$total){
-                $order->setStatus("PAYED");
-                $newBalance = $userBalance-$total;
+            if ($userBalance >= $total) {
+                $order->setStatus('PAYED');
+                $newBalance = $userBalance - $total;
                 Auth::user()->setAccountBalance($newBalance);
                 Auth::User()->save();
                 $order->save();
                 $request->session()->forget('items');
             }
-            $viewData= [];
-            $viewData["order"]=$order;
-            if($order->getStatus()=="PAYED"){
-                return view('user.cart.success')->with("viewData",$viewData);
+            $viewData = [];
+            $viewData['order'] = $order;
+            if ($order->getStatus() == 'PAYED') {
+                return view('user.cart.success')->with('viewData', $viewData);
             }
-            return view('user.cart.fail')->with("viewData",$viewData);
-        }else{
+
+            return view('user.cart.fail')->with('viewData', $viewData);
+        } else {
             return redirect()->route('user.cart.index');
         }
     }

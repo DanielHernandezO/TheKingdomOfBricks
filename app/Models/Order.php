@@ -18,14 +18,13 @@ class Order extends Model
      * $this->attributes['created_at'] - string - contains the creation date
      * $this->attributes['update_at'] - string - contains the date of the last update
      */
-
     protected $fillable = ['id', 'total_amount', 'status'];
-    
+
     public static function validate($request)
     {
         $request->validate([
-            "total_amount" => "required|numeric",
-            "user_id" => "required|exists:users,id",
+            'total_amount' => 'required|numeric',
+            'user_id' => 'required|exists:users,id',
         ]);
     }
 

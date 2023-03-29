@@ -11,11 +11,11 @@ class AdminUserController extends Controller
 {
     public function index(Request $request): View
     {
-        $users = User::query();
+        $users = User::where('role', '=', 'user');
 
         $requestedId = $request->input('id');
         if ($requestedId != '') {
-            $users = User::where('id', '=', $requestedId);
+            $users = $users->where('id', '=', $requestedId);
         }
 
         $viewData = [];

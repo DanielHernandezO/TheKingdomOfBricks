@@ -33,10 +33,10 @@ class UserItemController extends Controller
             $reviews = $item->reviews()->paginate(2);
             $viewData['item'] = $item;
             $viewData['reviews'] = $reviews;
+
             return view('user.item.show')->with('viewData', $viewData);
         } catch (Exception $e) {
             return redirect()->route('home.index');
         }
     }
-
 }
