@@ -61,7 +61,7 @@
                                         <input type="file" class="invisible" id="image" name="image">
                                     </label>
                                 </div>
-                                <button type="submit" class="btn btn-primary">{{__('actions.send')}}</button>
+                                <button type="submit" class="btn btn-primary">{{__('commons.send')}}</button>
                             </form> 
                         </div>
                     </div>

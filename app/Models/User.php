@@ -81,6 +81,16 @@ class User extends Authenticatable
         $this->attributes['email'] = $email;
     }
 
+    public function getAccountBalance(): int
+    {
+        return $this->attributes['account_balance'];
+    }
+
+    public function setAccountBalance(int $newBalance): void
+    {
+        $this->attributes['account_balance'] = $newBalance;
+    }
+
     public function reviews(): HasMany
     {
         return $this->hasMany(Review::class);

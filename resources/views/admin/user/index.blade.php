@@ -25,7 +25,7 @@
       <th scope="col">{{ __('commons.name') }}</th>
       <th scope="col">{{ __('commons.email') }}</th>
       <th scope="col">{{ __('commons.role') }}</th>
-      <th scope="col">{{ __('actions.delete') }}</th>
+      <th scope="col">{{ __('commons.delete') }}</th>
     </tr>
   </thead>
   <tbody>
@@ -41,7 +41,7 @@
             @csrf
             @method("DELETE")
             <div class="form-group mt-2">
-                <input type="submit" class="btn btn-danger" value={{__('actions.delete')}}>
+                <input type="submit" class="btn btn-danger" value={{__('commons.delete')}}>
             </div>
           </form>
         </td>

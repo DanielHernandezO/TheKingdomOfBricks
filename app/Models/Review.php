@@ -16,9 +16,18 @@ class Review extends Model
      * $this->attributes['id'] - int - contains the review primary key (id)
      * $this->attributes['rating'] - int - contains the rating of the review
      * $this->attributes['comment'] - string - contains the review comment
-     * $this->attributes['item'] - Item - contains the associated Item
+     * $this->attributes['item_id'] - int - contains the associated Item
+     * $this->attributes['user_id'] - int - contains the associated User
      */
     protected $fillable = ['rating', 'comment'];
+
+    public static function validate(Request $request): void
+    {
+        $request->validate([
+            'rating' => 'required',
+            'comment' => 'required',
+        ]);
+    }
 
     public function getId(): int
     {
@@ -50,6 +59,26 @@ class Review extends Model
         $this->attributes['comment'] = $comment;
     }
 
+    public function getItemId(): int
+    {
+        return $this->attributes['item_id'];
+    }
+
+    public function setItemId(int $itemId): void
+    {
+        $this->attributes['item_id'] = $itemId;
+    }
+
+    public function getUserId(): int
+    {
+        return $this->attributes['user_id'];
+    }
+
+    public function setUserId(int $userId): void
+    {
+        $this->attributes['user_id'] = $userId;
+    }
+
     public function item(): BelongsTo
     {
         return $this->belongsTo(Item::class);
@@ -62,7 +91,7 @@ class Review extends Model
 
     public function setItem(Item $item): void
     {
-        $this->attributes['item_id'] = $item->getId();
+        $this->item = $item;
     }
 
     public function user(): BelongsTo
@@ -77,14 +106,6 @@ class Review extends Model
 
     public function setUser(User $user): void
     {
-        $this->attributes['user_id'] = $user->getId();
-    }
-
-    public static function validate(Request $request): void
-    {
-        $request->validate([
-            'rating' => 'required',
-            'comment' => 'required',
-        ]);
+        $this->user = $user;
     }
 }

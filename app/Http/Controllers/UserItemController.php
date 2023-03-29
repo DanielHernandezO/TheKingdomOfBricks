@@ -34,26 +34,26 @@ class UserItemController extends Controller
             $reviews = $item->reviews()->paginate(2);
             $viewData['item'] = $item;
             $viewData['reviews'] = $reviews;
+
             return view('user.item.show')->with('viewData', $viewData);
         } catch (Exception $e) {
             return redirect()->route('home.index');
         }
     }
+
     public function addReview(Request $request): RedirectResponse
     {
         $requestedId = $request->route('itemId');
-        $item = Item::findOrFail($requestedId);
-        $user = auth()->user();
-
+        $userId = auth()->user()->getId();
         $review = new Review([
             'rating' => $request['rating'],
             'comment' => $request['comment'],
         ]);
-        
-        $review->setUser($user);
-        $review->setItem($item);
+
+        $review->setUserId($userId);
+        $review->setItemId($requestedId);
         $review->save();
+
         return redirect()->back();
     }
-
 }

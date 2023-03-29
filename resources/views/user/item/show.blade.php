@@ -23,11 +23,21 @@
                         @endif
                     >{{ __('commons.inputLabelWithValue', ['att' => __('commons.stock'), 'val' => $viewData['item']->getStock()])}}</p>
                     <div>
-                        <a href="" class="btn btn-secondary">{{__('actions.addReview')}}</a>
                         @if($viewData['item']->getStock()>0)
-                            <a href="" class="btn btn-primary">{{__('actions.addToCart')}}</a>
-                        @else
-                            <a href="" class="btn btn-primary disabled">{{__('actions.addToCart')}}</a>
+                        <form method="POST" action="{{ route('user.cart.add', ['id'=> $viewData['item']->getId()]) }}">
+                            <div class="row">
+                                @csrf
+                                <div class="col-auto">
+                                    <div class="input-group col-auto">
+                                        <div class="input-group-text">{{__('user.quantity')}}</div>
+                                        <input type="number" min="1" max={{$viewData['item']->getStock()}} class="form-control quantity-input" name="quantity" value="1">
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn bg-primary text-white" type="submit">{{__('user.addToCart')}}</button>
+                                </div>
+                            </div>
+                        </form>                        
                         @endif
                     </div>
                 </div>
@@ -35,11 +45,12 @@
         </div>
 
         <div class="card">
+            <div class="card-header">{{ __('user.addReview') }}</div>
             <div class="card-body d-flex justify-content-between align-items-center">
                 <form method="POST" action="{{ route('user.item.review', ['itemId'=> $viewData['item']->getId()]) }}" class="w-100">
                     @csrf
                     <div class="form-group w-100">
-                        <label for="rating" class="card-subtitle text-muted">{{ __('commons.inputLabel', ['att' => __('commons.rating')]) }}</label>
+                        <label for="ratingInput" class="card-subtitle text-muted">{{ __('commons.inputLabel', ['att' => __('commons.rating')]) }}</label>
                         <select name="rating" id="rating" class="form-control">
                             <option value="0">0</option>
                             <option value="1">1</option>
@@ -50,10 +61,10 @@
                         </select>
                     </div>
                     <div class="form-group w-100">
-                        <label for="comment" class="card-subtitle text-muted">{{ __('commons.inputLabel', ['att' => __('commons.comment')]) }}</label>
-                        <textarea name="text" id="comment" rows="3" class="form-control"></textarea>
+                        <label for="commentInput" class="card-subtitle text-muted">{{ __('commons.inputLabel', ['att' => __('commons.comment')]) }}</label>
+                        <textarea name="comment" id="comment" rows="3" class="form-control"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-3">{{ __('actions.send') }}</button>
+                    <button type="submit" class="btn btn-primary mt-3">{{ __('commons.send') }}</button>
                 </form>
             </div>
         </div>
@@ -71,5 +82,6 @@
         <div class="d-flex justify-content-center">
             {{ $viewData["reviews"]->render('pagination::bootstrap-4') }}
         </div>
+
     </div>
 @endsection
