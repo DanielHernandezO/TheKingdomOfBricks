@@ -9,7 +9,7 @@
                     <th scope="col">{{__('commons.id')}}</th>
                     <th scope="col">{{__('commons.title')}}</th>
                     <th scope="col">{{__('commons.price')}}</th>
-                    <th scope="col">{{__('user.quantity')}}</th>
+                    <th scope="col">{{__('commons.quantity')}}</th>
                 </tr>
             </thead>
             <tbody>

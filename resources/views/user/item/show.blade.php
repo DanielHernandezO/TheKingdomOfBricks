@@ -29,7 +29,7 @@
                                 @csrf
                                 <div class="col-auto">
                                     <div class="input-group col-auto">
-                                        <div class="input-group-text">{{__('user.quantity')}}</div>
+                                        <div class="input-group-text">{{__('commons.quantity')}}</div>
                                         <input type="number" min="1" max={{$viewData['item']->getStock()}} class="form-control quantity-input" name="quantity" value="1">
                                     </div>
                                 </div>

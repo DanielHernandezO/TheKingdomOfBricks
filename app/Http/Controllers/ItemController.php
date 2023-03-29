@@ -59,6 +59,18 @@ class ItemController extends Controller
         return back()->withSuccess(__('admin.itemCreated'));
     }
 
+    public function update(Request $request): RedirectResponse
+    {
+        $itemId = $request['id'];
+        $item = Item::findOrFail($itemId);
+        if ($item) {
+            $item->setStock($item->getStock() + $request['stock']);
+            $item->save();
+        }
+
+        return back()->withSuccess(__('admin.addedStock'));
+    }
+
     public function delete(int $id): RedirectResponse
     {
         $item = Item::findOrFail($id);

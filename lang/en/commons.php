@@ -11,6 +11,7 @@ return [
     'pieces' => 'pieces',
     'stock' => 'stock',
     'image' => 'image',
+    'quantity' => 'Quantity',
 
     //User atts
     'name' => 'Name',
