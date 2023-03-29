@@ -28,6 +28,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/admin/items/delete/{id}', 'App\Http\Controllers\ItemController@delete')->name('admin.item.delete');
     Route::get('/admin/items', 'App\Http\Controllers\ItemController@index')->name('admin.item.index');
     Route::get('/admin/items/{id}', 'App\Http\Controllers\ItemController@show')->name('admin.item.show');
+    Route::put('/admin/items/{id}', 'App\Http\Controllers\ItemController@update')->name('admin.item.update');
 
     Route::get('/admin/reviews', 'App\Http\Controllers\ReviewController@index')->name('admin.review.index');
     Route::get('/admin/reviews/{id}', 'App\Http\Controllers\ReviewController@show')->name('admin.review.show');
