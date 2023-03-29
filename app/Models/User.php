@@ -4,8 +4,11 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Collection;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -76,5 +79,60 @@ class User extends Authenticatable
     public function setEmail(string $email): void
     {
         $this->attributes['email'] = $email;
+    }
+
+    public function getAccountBalance(): int
+    {
+        return $this->attributes['account_balance'];
+    }
+
+    public function setAccountBalance(int $newBalance): void
+    {
+        $this->attributes['account_balance'] = $newBalance;
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function setReviews(Collection $reviews): void
+    {
+        $this->reviews = $reviews;
+    }
+
+    public function character(): HasOne
+    {
+        return $this->hasOne(Character::class);
+    }
+
+    public function getCharacter(): Character
+    {
+        return $this->character;
+    }
+
+    public function setCharacter(Character $character): void
+    {
+        $this->character = $character;
+    }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function setOrders(Collection $orders): void
+    {
+        $this->orders = $orders;
     }
 }

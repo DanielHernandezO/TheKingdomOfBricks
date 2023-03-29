@@ -15,6 +15,8 @@ return [
     'itemCreated' => 'Item created successfully',
     'listItems' => 'List items',
     'itemTitle' => 'Items section',
+    'addStock' => 'Add stock',
+    'addedStock' => 'Added Stock',
 
     //Review
     'createReview' => 'Create review',
@@ -24,5 +26,6 @@ return [
     //User
     'listUsers' => 'List users',
 
+    //erroMessages
     'noUsersFound' => 'ID does not match any user.',
 ];

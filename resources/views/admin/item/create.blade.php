@@ -55,12 +55,13 @@
                                     <input type="number" class="form-control" id="stock" placeholder="{{__('commons.placeholder', ['att' => __('commons.stock')])}}" name="stock"
                                         value="{{ old('stock') }}" />
                                 </div>
-                                <div class="form-group">
-                                    <label for="image">{{ __('commons.image') }}</label>
-                                    <input type="file" class="form-control-file" id="image" name="image" />
-                                    <img class="img-fluid rounded mt-3" src="{{ URL::asset('storage/test.png') }}" />
+                                <span> {{ __('commons.inputLabel', ['att' => __('commons.image')]) }} </span>
+                                <div class="form-group mb-2">
+                                    <label class="form-control"> {{__('commons.enterImage')}}
+                                        <input type="file" class="invisible" id="image" name="image">
+                                    </label>
                                 </div>
-                                <button type="submit" class="btn btn-primary">{{__('actions.send')}}</button>
+                                <button type="submit" class="btn btn-primary">{{__('commons.send')}}</button>
                             </form> 
                         </div>
                     </div>

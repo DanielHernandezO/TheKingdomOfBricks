@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
 
 class Item extends Model
@@ -20,6 +23,7 @@ class Item extends Model
      * $this->attributes['pieces'] - int - contains the item number of pieces
      * $this->attributes['stock'] - int - contains the item stock
      * $this->attributes['image'] - string - contains the item image path
+     * $this->attributes['reviews'] - Reviews[] - contains the reviews related to an item
      */
     protected $fillable = ['title', 'type', 'price', 'guide', 'pieces', 'stock', 'image'];
 
@@ -33,6 +37,16 @@ class Item extends Model
             'stock' => 'required|gt:0',
             'image' => 'required|image|mimes:jpeg,bmp,png',
         ]);
+    }
+
+    public static function sumPricesByQuantities($items, $itemsInSession): int
+    {
+        $total = 0;
+        foreach ($items as $item) {
+            $total = $total + ($item->getPrice() * $itemsInSession[$item->getId()]);
+        }
+
+        return $total;
     }
 
     public function getId(): int
@@ -108,5 +122,41 @@ class Item extends Model
     public function setImage(string $image): void
     {
         $this->attributes['image'] = $image;
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
+
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function setReviews(Collection $reviews): void
+    {
+        $this->reviews = $reviews;
+    }
+
+    public function characters(): BelongsToMany
+    {
+        return $this->belongsToMany(Character::class, 'character_items', 'item_id', 'character_id')
+            ->withPivot('type');
+    }
+
+    public function orderItems(): HasMany
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
+    public function getOrderItems(): Collection
+    {
+        return $this->orderItems;
+    }
+
+    public function setOrderItems(Collection $orderItems): void
+    {
+        $this->orderItems = $orderItems;
     }
 }

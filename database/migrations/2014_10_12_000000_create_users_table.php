@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('role', ['user', 'admin'])->default('user');
+            $table->integer('account_balance')->default(10000);
             $table->rememberToken();
             $table->timestamps();
         });
