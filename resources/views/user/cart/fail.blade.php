@@ -15,7 +15,7 @@
                             </div>
                             <div class="col-md-6">
                                 <p>{{__('user.failPurchase')}}</p>
-                                <a href="/" class="btn btn-primary">{{__('user.goCart')}}</a>
+                                <a href="{{ route('user.cart.index')}}" class="btn btn-primary">{{__('user.goCart')}}</a>
                             </div>
                         </div>
                     </div>
