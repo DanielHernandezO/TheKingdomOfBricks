@@ -71,7 +71,7 @@ class UserCartController extends Controller
             $order->setTotalAmount($total);
             $userBalance = Auth::user()->getAccountBalance();
             if ($userBalance >= $total) {
-                $order->setStatus('PAYED');
+                $order->setStatus('PAID');
                 $newBalance = $userBalance - $total;
                 Auth::user()->setAccountBalance($newBalance);
                 Auth::User()->save();
