@@ -39,6 +39,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/myProfile', 'App\Http\Controllers\UserController@profile')->name('user.profile');
+
+    Route::get('/my-purchases', 'App\Http\Controllers\UserMyPurchasesController@index')->name('user.purchase.index');
+
     Route::get('/character', 'App\Http\Controllers\CharacterController@editView')->name('character.editView');
     Route::put('/character/update', 'App\Http\Controllers\CharacterController@update')->name('character.update');
 

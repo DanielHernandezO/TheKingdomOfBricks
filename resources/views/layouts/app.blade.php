@@ -23,19 +23,20 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                @guest
                <div class="navbar-nav ms-auto">
-                  <a class="nav-link active" href="{{ route('user.item.index') }}">Items</a>
+                  <a class="nav-link active" href="{{ route('user.item.index') }}">{{__('user.items')}}</a>
                   <div class="vr bg-white mx-2 d-none d-lg-block"></div>
-                  <a class="nav-link active" href="{{ route('login') }}">Login</a>
-                  <a class="nav-link active" href="{{ route('register') }}">Register</a>
+                  <a class="nav-link active" href="{{ route('login') }}">{{__('user.login')}}</a>
+                  <a class="nav-link active" href="{{ route('register') }}">{{__('user.register')}}</a>
                </div>
                @else
                <div class="navbar-nav ms-auto">
-                  <a class="nav-link active" href="{{ route('user.item.index') }}">Items</a>
-                  <a class="nav-link active" href="{{ route('user.cart.index') }}">Cart</a>
+                  <a class="nav-link active" href="{{ route('user.item.index') }}">{{__('user.items')}}</a>
+                  <a class="nav-link active" href="{{ route('user.cart.index') }}">{{__('user.cart')}}</a>
+                  <a class="nav-link active" href="{{ route('user.purchase.index') }}">{{__('user.myPurchases')}}</a>
                   <div class="vr bg-white mx-2 d-none d-lg-block"></div>
                   <form id="logout" action="{{ route('logout') }}" method="POST">
                      <a role="button" class="nav-link active"
-                     onclick="document.getElementById('logout').submit();">Logout</a>
+                     onclick="document.getElementById('logout').submit();">{{__('user.logout')}}</a>
                   @csrf
                   </form>
                </div>
