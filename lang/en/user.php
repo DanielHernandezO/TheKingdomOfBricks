@@ -38,5 +38,5 @@ return [
     'myProfile' => 'My profile',
     'information' => 'My information',
     'accountBalance' => 'Account balance',
-    'characterPrice' => 'Character total price'
+    'characterPrice' => 'Character total price',
 ];
