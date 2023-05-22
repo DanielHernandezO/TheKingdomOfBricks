@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Character extends Model
-{   
+{
     use HasFactory;
 
     /**
@@ -24,6 +24,7 @@ class Character extends Model
     {
         return $this->attributes['id'];
     }
+
     public function getUser(): User
     {
         return $this->user;
