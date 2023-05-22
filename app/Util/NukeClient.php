@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\Http;
 
 class NukeClient implements NukeService
 {
-    private string $uri;
+    private string $domain;
     public function __construct() {
-        $this->uri = 'https://www.nukestore.world';
+        $this->domain = config('services.nuke.domain');
     }
     public function getAllBombs(): array
     {
-        return Http::get($this->uri.'/api/bombs')->json();
+        return Http::get($this->domain.'/api/bombs')->json();
     }
 }
