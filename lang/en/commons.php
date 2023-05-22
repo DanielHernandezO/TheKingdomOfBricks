@@ -11,6 +11,7 @@ return [
     'pieces' => 'pieces',
     'stock' => 'stock',
     'image' => 'image',
+    'quantity' => 'Quantity',
 
     //User atts
     'name' => 'Name',
@@ -26,7 +27,7 @@ return [
     //Devs
     'devs' => 'The KB devs',
 
-    //TODO Migrate actions to actions file
+    //actions
     'send' => 'Send',
     'delete' => 'Delete',
     'brand' => 'The kingdom of the bricks',
@@ -51,4 +52,11 @@ return [
     'all' => 'All',
     'selectFile' => 'Select file',
     'enterImage' => 'Enter image',
+    'update' => 'Update',
+    'edit' => 'Edit',
+
+    //pagination
+    'previous' => '&laquo; Previous',
+    'next' => 'Next &raquo;',
+
 ];

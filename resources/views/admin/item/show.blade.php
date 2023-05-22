@@ -22,13 +22,30 @@
                             class="card-text"
                         @endif
                     >{{ __('commons.inputLabelWithValue', ['att' => __('commons.stock'), 'val' => $viewData['item']->getStock()])}}</p>
-                    <form method="POST" action="{{ route('admin.item.delete', ['id'=> $viewData['item']->getId()]) }}">
-                        @csrf
-                        @method("DELETE")
-                        <div class="form-group mt-2">
-                            <input type="submit" class="btn btn-danger" value={{__('actions.delete')}}>
-                        </div>
-                    </form>
+                    <div>
+                        <form method="POST" action="{{ route('admin.item.update', ['id'=> $viewData['item']->getId()]) }}">
+                            @method("PUT")
+                            <div class="row">
+                                @csrf
+                                <div class="col-auto">
+                                    <div class="input-group col-auto">
+                                        <div class="input-group-text">{{__('commons.quantity')}}</div>
+                                        <input name="stock" type="number" min="1" max=100 class="form-control quantity-input" name="quantity" value="1">
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn bg-primary text-white" type="submit">{{__('admin.addStock')}}</button>
+                                </div>
+                            </div>
+                        </form>  
+                        <form method="POST" action="{{ route('admin.item.delete', ['id'=> $viewData['item']->getId()]) }}">
+                            @csrf
+                            @method("DELETE")
+                            <div class="form-group mt-2">
+                                <input type="submit" class="btn btn-danger" value={{__('commons.delete')}}>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

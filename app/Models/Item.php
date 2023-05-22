@@ -39,6 +39,16 @@ class Item extends Model
         ]);
     }
 
+    public static function sumPricesByQuantities($items, $itemsInSession): int
+    {
+        $total = 0;
+        foreach ($items as $item) {
+            $total = $total + ($item->getPrice() * $itemsInSession[$item->getId()]);
+        }
+
+        return $total;
+    }
+
     public function getId(): int
     {
         return $this->attributes['id'];
@@ -133,5 +143,20 @@ class Item extends Model
     {
         return $this->belongsToMany(Character::class, 'character_items', 'item_id', 'character_id')
             ->withPivot('type');
+    }
+
+    public function orderItems(): HasMany
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
+    public function getOrderItems(): Collection
+    {
+        return $this->orderItems;
+    }
+
+    public function setOrderItems(Collection $orderItems): void
+    {
+        $this->orderItems = $orderItems;
     }
 }

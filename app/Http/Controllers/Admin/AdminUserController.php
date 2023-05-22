@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -11,11 +12,11 @@ class AdminUserController extends Controller
 {
     public function index(Request $request): View
     {
-        $users = User::query();
+        $users = User::where('role', '=', 'user');
 
         $requestedId = $request->input('id');
         if ($requestedId != '') {
-            $users = User::where('id', '=', $requestedId);
+            $users = $users->where('id', '=', $requestedId);
         }
 
         $viewData = [];
