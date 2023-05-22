@@ -18,4 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('v1/products', 'App\Http\Controllers\Api\LegosApiController@index')->name('api.product.index');
+Route::get('v1/items', 'App\Http\Controllers\Api\LegosApiController@index')->name('api.product.index');

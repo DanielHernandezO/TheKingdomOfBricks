@@ -19,6 +19,3 @@ class ItemResource extends JsonResource
         ];
     }
 }
-
-
-

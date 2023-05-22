@@ -12,6 +12,7 @@ class LegosApiController extends Controller
     public function index(): JsonResponse
     {
         $items = ItemResource::collection(Item::all());
+
         return response()->json($items, 200);
     }
 }
