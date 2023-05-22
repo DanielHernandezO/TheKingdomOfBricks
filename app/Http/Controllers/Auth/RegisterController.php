@@ -83,7 +83,6 @@ class RegisterController extends Controller
         $character->items()->attach($chestItem, ['type' => 'chest']);
         $character->items()->attach($legItem, ['type' => 'legs']);
 
-        
         return $user;
     }
 }

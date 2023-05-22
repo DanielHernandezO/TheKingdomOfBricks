@@ -28,6 +28,7 @@ class OrderItem extends Model
     {
         $this->attributes['quantity'] = $quantity;
     }
+
     public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);
