@@ -55,6 +55,8 @@ Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/cart/delete', 'App\Http\Controllers\User\UserCartController@delete')->name('user.cart.delete');
     Route::post('/cart/add/{id}', 'App\Http\Controllers\User\UserCartController@add')->name('user.cart.add');
     Route::get('/cart/purchase', 'App\Http\Controllers\User\UserCartController@purchase')->name('user.cart.purchase');
+
+    Route::get('/nukes', 'App\Http\Controllers\User\UserNukeController@index')->name('user.nuke.index');
 });
 
 Auth::routes();

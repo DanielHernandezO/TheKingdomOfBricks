@@ -33,6 +33,7 @@
                   <a class="nav-link active" href="{{ route('user.item.index') }}">{{__('user.items')}}</a>
                   <a class="nav-link active" href="{{ route('user.cart.index') }}">{{__('user.cart')}}</a>
                   <a class="nav-link active" href="{{ route('user.purchase.index') }}">{{__('user.myPurchases')}}</a>
+                  <a class="nav-link active" href="{{ route('user.nuke.index') }}">{{__('user.nuke')}}</a>
                   <div class="vr bg-white mx-2 d-none d-lg-block"></div>
                   <a class="nav-link active" href="{{ route('user.profile') }}">My profile</a>
                   <form id="logout" action="{{ route('logout') }}" method="POST">
