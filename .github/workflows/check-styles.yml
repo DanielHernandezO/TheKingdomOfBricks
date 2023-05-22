@@ -11,6 +11,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    
+    - name: Copy .env
+      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
@@ -18,7 +21,10 @@ jobs:
         php-version: '8.1.2'
 
     - name: Install dependencies
-      run: composer install --no-interaction --prefer-dist
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+    - name: Generate key
+      run: php artisan key:generate
 
     - name: Run PHP Code Sniffer
       run: vendor/bin/phpcs --test
