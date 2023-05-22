@@ -34,5 +34,5 @@ return [
     'myProfile' => 'Mi perfil',
     'information' => 'Mis datos',
     'accountBalance' => 'Saldo de la cuenta',
-    'characterPrice' => 'Precio total de los personajes'
+    'characterPrice' => 'Precio total de los personajes',
 ];

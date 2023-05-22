@@ -60,6 +60,6 @@ return [
     'next' => 'Next &raquo;',
 
     //Idiomas
-    'es' => "Spanish",
-    'en' => "English"
+    'es' => 'Spanish',
+    'en' => 'English',
 ];

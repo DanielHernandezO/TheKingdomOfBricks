@@ -18,6 +18,3 @@ return [
     'token' => 'Este token de restablecimiento de contraseña es inválido.',
     'user' => 'No podemos encontrar un usuario con esa dirección de correo electrónico.',
 ];
-
-
-
