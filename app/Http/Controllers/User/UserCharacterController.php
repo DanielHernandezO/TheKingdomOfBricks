@@ -35,7 +35,7 @@ class UserCharacterController extends Controller
     {
         $user = auth()->user();
         $character = new Character();
-        
+
         $head = Item::findOrFail($request['head-id']);
         $chest = Item::findOrFail($request['chest-id']);
         $legs = Item::findOrFail($request['legs-id']);
@@ -46,7 +46,7 @@ class UserCharacterController extends Controller
         $character->setHead($head);
         $character->setChest($chest);
         $character->setLegs($legs);
-    
+
         return redirect()->route('user.profile');
     }
 }
