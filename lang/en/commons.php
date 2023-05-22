@@ -59,4 +59,7 @@ return [
     'previous' => '&laquo; Previous',
     'next' => 'Next &raquo;',
 
+    //Idiomas
+    'es' => 'Spanish',
+    'en' => 'English',
 ];

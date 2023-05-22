@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
 Route::get('/items', 'App\Http\Controllers\User\UserItemController@index')->name('user.item.index');
-
+Route::get('/language', 'App\Http\Controllers\LangController@locale')->name('lang.locale');
 /*
 |--------------------------------------------------------------------------
 | Here you will found all the routes related to admin role. This middleware

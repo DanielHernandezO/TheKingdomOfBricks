@@ -8,6 +8,7 @@ return [
     'login' => 'Login',
     'register' => 'Register',
     'logout' => 'Logout',
+    'nuke' => 'Nukes ☢',
 
     //shop
     'itemTitle' => 'shop',

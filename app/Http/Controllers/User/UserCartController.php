@@ -80,7 +80,7 @@ class UserCartController extends Controller
             }
             $viewData = [];
             $viewData['order'] = $order;
-            if ($order->getStatus() == 'PAYED') {
+            if ($order->getStatus() == 'PAID') {
                 return view('user.cart.success')->with('viewData', $viewData);
             }
 
