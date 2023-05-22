@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
 Route::get('/items', 'App\Http\Controllers\User\UserItemController@index')->name('user.item.index');
+Route::get('/nukes', 'App\Http\Controllers\User\UserNukeController@index')->name('user.nuke.index');
 /*
 |--------------------------------------------------------------------------
 | Here you will found all the routes related to admin role. This middleware
