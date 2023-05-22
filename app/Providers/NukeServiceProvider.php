@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-
 use App\Interfaces\NukeService;
 use App\Util\NukeClient;
 use Illuminate\Support\ServiceProvider;

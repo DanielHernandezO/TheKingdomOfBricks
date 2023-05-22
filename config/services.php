@@ -32,6 +32,6 @@ return [
     ],
     'nuke' => [
         'domain' => env('NUKE_STORE_DOMAIN'),
-    ]
+    ],
 
 ];
