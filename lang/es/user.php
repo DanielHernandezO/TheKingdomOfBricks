@@ -7,6 +7,7 @@ return [
     'login' => 'Iniciar sesión',
     'register' => 'Registrarse',
     'logout' => 'Cerrar sesión',
+    'nuke' => 'Misiles ☢',
 
     'itemTitle' => 'Tienda',
 
