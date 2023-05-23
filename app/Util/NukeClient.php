@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 class NukeClient implements NukeService
 {
-    private string $domain;
+    protected string $domain;
 
     public function __construct()
     {

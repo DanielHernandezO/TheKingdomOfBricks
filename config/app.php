@@ -209,7 +209,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ImageServiceProvider::class,
         App\Providers\NukeServiceProvider::class,
-
+        App\Providers\NukeImageServiceProvider::class,
+        App\Providers\FlagImageServiceProvider::class,
     ],
 
     /*

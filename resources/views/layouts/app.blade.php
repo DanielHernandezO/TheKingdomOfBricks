@@ -35,7 +35,7 @@
                   <a class="nav-link active" href="{{ route('user.purchase.index') }}">{{__('user.myPurchases')}}</a>
                   <a class="nav-link active" href="{{ route('user.nuke.index') }}">{{__('user.nuke')}}</a>
                   <div class="vr bg-white mx-2 d-none d-lg-block"></div>
-                  <a class="nav-link active" href="{{ route('user.profile') }}">My profile</a>
+                  <a class="nav-link active" href="{{ route('user.profile') }}">{{__('user.myProfile')}}</a>
                   <form id="logout" action="{{ route('logout') }}" method="POST">
                      <a role="button" class="nav-link active"
                      onclick="document.getElementById('logout').submit();">{{__('user.logout')}}</a>
