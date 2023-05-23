@@ -17,6 +17,7 @@ class FlagCdnImageClient implements FlagImageService
     {
         $url = $this->domain.'/w320/';
         $file = strtolower($countryId).'.png';
+
         return $url.$file;
     }
 }

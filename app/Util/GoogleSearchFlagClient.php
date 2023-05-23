@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\Http;
 class GoogleSearchFlagClient implements FlagImageService
 {
     protected string $domain;
+
     protected string $apiKey;
+
     protected string $customSearchEngineId;
 
     public function __construct()
@@ -28,6 +30,7 @@ class GoogleSearchFlagClient implements FlagImageService
             'q' => $countryId.' country flag',
         ]);
         $response = Http::get($url.$queryParams)->json();
+
         return $response['items'][0]['link'];
     }
 }

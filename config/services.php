@@ -40,6 +40,6 @@ return [
     ],
     'flagcdn' => [
         'domain' => env('FLAGCDN_DOMAIN'),
-    ]
+    ],
 
 ];
