@@ -33,5 +33,13 @@ return [
     'nuke' => [
         'domain' => env('NUKE_STORE_DOMAIN'),
     ],
+    'google' => [
+        'domain' => env('GOOGLE_DOMAIN'),
+        'p' => env('GOOGLE_API_KEY'),
+        'cx' => env('GOOGLE_CUSTOM_SEARCH_ENGINE_ID'),
+    ],
+    'flagcdn' => [
+        'domain' => env('FLAGCDN_DOMAIN'),
+    ]
 
 ];
