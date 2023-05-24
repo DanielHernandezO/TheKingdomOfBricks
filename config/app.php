@@ -112,6 +112,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Available locales
+    |--------------------------------------------------------------------------
+    |
+    | List all locales that your application works with
+    |
+    */
+    'available_locales' => [
+        'English' => 'en',
+        'Spanish' => 'es',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Encryption Key
     |--------------------------------------------------------------------------
     |
@@ -195,7 +208,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ImageServiceProvider::class,
-
+        App\Providers\NukeServiceProvider::class,
+        App\Providers\NukeImageServiceProvider::class,
+        App\Providers\FlagImageServiceProvider::class,
     ],
 
     /*
@@ -211,6 +226,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'LangEnum' => App\Enums\LangEnum::class,
     ])->toArray(),
 
 ];

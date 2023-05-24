@@ -8,6 +8,7 @@ return [
     'login' => 'Login',
     'register' => 'Register',
     'logout' => 'Logout',
+    'nuke' => 'Nukes ☢',
 
     //shop
     'itemTitle' => 'shop',
@@ -38,5 +39,5 @@ return [
     'myProfile' => 'My profile',
     'information' => 'My information',
     'accountBalance' => 'Account balance',
-    'characterPrice' => 'Character total price'
+    'characterPrice' => 'Character total price',
 ];

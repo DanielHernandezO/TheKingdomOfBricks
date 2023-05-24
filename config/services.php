@@ -30,5 +30,16 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'nuke' => [
+        'domain' => env('NUKE_STORE_DOMAIN'),
+    ],
+    'google' => [
+        'domain' => env('GOOGLE_DOMAIN'),
+        'p' => env('GOOGLE_API_KEY'),
+        'cx' => env('GOOGLE_CUSTOM_SEARCH_ENGINE_ID'),
+    ],
+    'flagcdn' => [
+        'domain' => env('FLAGCDN_DOMAIN'),
+    ],
 
 ];

@@ -71,11 +71,11 @@ class UserCartController extends Controller
             $order->setTotalAmount($total);
             $userBalance = Auth::user()->getAccountBalance();
             if ($userBalance >= $total) {
-		foreach ($itemsInCart as $item){
-			$itemModel = Item::findOrFail($item->getId());
-			$itemModel->setStock($itemModel->getStock()-$itemsInSession[$item->getId()]);
-			$itemModel->save(); 
-		}
+                foreach ($itemsInCart as $item) {
+                    $itemModel = Item::findOrFail($item->getId());
+                    $itemModel->setStock($itemModel->getStock() - $itemsInSession[$item->getId()]);
+                    $itemModel->save();
+                }
                 $order->setStatus('PAID');
                 $newBalance = $userBalance - $total;
                 Auth::user()->setAccountBalance($newBalance);

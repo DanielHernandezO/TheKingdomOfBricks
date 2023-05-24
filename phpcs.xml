@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<ruleset name="MyProject">
+    <description>My Project coding standard</description>
+
+    <!-- Incluimos los estándares recomendados por Laravel -->
+    <rule ref="PSR12"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly"/>
+    <rule ref="SlevomatCodingStandard.Classes.UnusedPrivateElements"/>
+
+    <!-- Excluimos los directorios vendor y node_modules del análisis -->
+    <exclude-pattern>vendor/*</exclude-pattern>
+    <exclude-pattern>node_modules/*</exclude-pattern>
+</ruleset>

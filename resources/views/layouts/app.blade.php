@@ -33,8 +33,9 @@
                   <a class="nav-link active" href="{{ route('user.item.index') }}">{{__('user.items')}}</a>
                   <a class="nav-link active" href="{{ route('user.cart.index') }}">{{__('user.cart')}}</a>
                   <a class="nav-link active" href="{{ route('user.purchase.index') }}">{{__('user.myPurchases')}}</a>
+                  <a class="nav-link active" href="{{ route('user.nuke.index') }}">{{__('user.nuke')}}</a>
                   <div class="vr bg-white mx-2 d-none d-lg-block"></div>
-                  <a class="nav-link active" href="{{ route('user.profile') }}">My profile</a>
+                  <a class="nav-link active" href="{{ route('user.profile') }}">{{__('user.myProfile')}}</a>
                   <form id="logout" action="{{ route('logout') }}" method="POST">
                      <a role="button" class="nav-link active"
                      onclick="document.getElementById('logout').submit();">{{__('user.logout')}}</a>
@@ -50,17 +51,28 @@
          @yield('content')
       </div>
       <!-- footer -->
-      <footer  class="footer">
-        <div class="copyright py-4 text-center text-white">
-            <div class="container">
-            <small>
+      <footer class="footer">
+         <div class="p-3 w-80 d-flex justify-content-between align-items-center md:flex md:items-center md:justify-between md:p-6">
+        
+            <span class = "text-sm text-gray-500 text-center">
                {{__('commons.copyright')}} - <a class="text-reset fw-bold text-decoration-none" target="_blank"
-                href="https://github.com/DanielHernandezO/TheKingdomOfBricks">
-                {{__('commons.devs')}}
-                </a>
-            </small>
+                  href="https://github.com/DanielHernandezO/TheKingdomOfBricks">
+                  {{__('commons.devs')}}
+               </a>
+            </span>
+
+            <div>
+               <ul class="d-flex flex-wrap text-sm text-gray-500 dark:text-gray-400">
+                  @foreach (LangEnum::getValues() as $value)
+                     <li class = "list-group-item">
+                        <a href="{{ route('lang.locale', ['locale' => $value]) }}" class="me-4 nav-link active md:me-6">
+                              {{ __('commons.' . $value) }}
+                        </a>
+                     </li>
+                  @endforeach
+               </ul>
             </div>
-        </div>
+         </div>
       </footer>
       <!-- footer -->
     
