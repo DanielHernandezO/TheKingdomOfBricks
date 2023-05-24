@@ -25,6 +25,9 @@ jobs:
 
     - name: Generate key
       run: php artisan key:generate
+      
+    - name: Migrations
+      run: php artisan migrate
 
     - name: Run PHP tests
-      run: ./vendor/bin/phpunit
+      run: php artisan tests
