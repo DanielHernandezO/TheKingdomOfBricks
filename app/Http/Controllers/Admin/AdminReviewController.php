@@ -16,8 +16,8 @@ class AdminReviewController extends Controller
         $minRating = $request->query('min_rating', 0);
         $maxRating = $request->query('max_rating', 5);
         $reviews = Review::whereBetween('rating', [$minRating, $maxRating])
-                           ->orderBy('rating', 'asc')
-                           ->paginate(10);
+            ->orderBy('rating', 'asc')
+            ->paginate(10);
         $viewData = [];
         $viewData['reviews'] = $reviews;
         $viewData['minRating'] = $minRating;

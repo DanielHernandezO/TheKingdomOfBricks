@@ -85,7 +85,7 @@ class Character extends Model
     public function items(): BelongsToMany
     {
         return $this->belongsToMany(Item::class, 'character_items', 'character_id', 'item_id')
-                    ->withPivot('type');
+            ->withPivot('type');
     }
 
     public function user(): BelongsTo
