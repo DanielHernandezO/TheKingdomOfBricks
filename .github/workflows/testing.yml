@@ -15,10 +15,10 @@ jobs:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_DATABASE: kingdomdb
-          MYSQL_USER: root
-          MYSQL_PASSWORD: 1234
-          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: test_db
+          MYSQL_USER: user
+          MYSQL_PASSWORD: secret
+          MYSQL_ROOT_PASSWORD: secretroot
         ports:
           - 3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -45,8 +45,8 @@ jobs:
 
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
-        MYSQL_DATABASE: kingdomdb
-        DB_USERNAME: root
-        DB_PASSWORD: 1234
+        MYSQL_DATABASE: test_db
+        DB_USERNAME: user
+        DB_PASSWORD: secret
         DB_PORT: ${{ job.services.mysql.ports[3306] }}
       run: vendor/bin/phpunit
