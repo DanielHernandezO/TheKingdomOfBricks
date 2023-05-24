@@ -3,7 +3,6 @@ RUN apt-get update -y && apt-get install -y openssl zip unzip git
 RUN docker-php-ext-install pdo_mysql
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 COPY . /var/www/html
-COPY /.htaccess /var/www/html/.htaccess
 COPY .env.example /var/www/html/.env
 
 WORKDIR /var/www/html
