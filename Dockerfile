@@ -5,6 +5,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 COPY . /var/www/html
 COPY ./public/.htaccess /var/www/html/.htaccess
 COPY .env.example /var/www/html/.env
+
 WORKDIR /var/www/html
 RUN composer install \
     --ignore-platform-reqs \
@@ -12,6 +13,7 @@ RUN composer install \
     --no-plugins \
     --no-scripts \
     --prefer-dist
+
 
 ENV GOOGLE_API_KEY $GOOGLE_API_KEY
 ENV GOOGLE_CUSTOM_SEARCH_ENGINE_ID $GOOGLE_CUSTOM_SEARCH_ENGINE_ID
@@ -25,6 +27,3 @@ RUN php artisan migrate
 RUN chmod -R 777 storage
 RUN a2enmod rewrite
 RUN service apache2 restart
-
-
-

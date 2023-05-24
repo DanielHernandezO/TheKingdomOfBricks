@@ -14,10 +14,10 @@
                                 <img src="{{ asset('images/item.jpg') }}" class="img-fluid" alt="Compra exitosa">
                             </div>
                             <div class="col-md-6">
-                                <p>{{__('user.successPurchase')}}</p>
+                                <p>{{__('user.success')}}</p>
                                 <p>{{ __('commons.inputLabelWithValue', ['att' => __('user.orderNumber'), 'val' => $viewData['order']->getId()])}}.</p>
                                 <p>{{__('user.oderPurchaseSection')}}</p>
-                                <a href="/" class="btn btn-primary">{{__('user.goPurchases')}}</a>
+                                <a href="{{ route('user.purchase.index')}}" class="btn btn-primary">{{__('user.goPurchases')}}</a>
                             </div>
                         </div>
                     </div>
