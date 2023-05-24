@@ -25,7 +25,8 @@ ENV DB_PASSWORD password
 RUN php artisan key:generate && \
     php artisan migrate && \
     chmod -R 777 storage && \
-    a2enmod rewrite
+    a2enmod rewrite && \
+    php artisan storage:link
 
 EXPOSE 80
 
