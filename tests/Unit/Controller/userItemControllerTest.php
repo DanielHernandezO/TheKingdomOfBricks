@@ -2,13 +2,10 @@
 
 namespace Tests\Unit;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class userItemControllerTest extends TestCase
 {
-    use RefreshDatabase;
-
     public function testUserItemcontroller(): void
     {
         //ACT
