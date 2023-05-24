@@ -1,0 +1,33 @@
+name: Docker Build and Push
+ 
+on:
+  push:
+    branches: [ master ]
+  pull_request: 
+    branches: [ master ]
+ 
+env:
+  DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+  DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+  GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+  GOOGLE_CUSTOM_SEARCH_ENGINE_ID: ${{ secrets.GOOGLE_CUSTOM_SEARCH_ENGINE_ID }}
+  DB_HOST: ${{ secrets.DB_HOST }}
+  DB_DATABASE: ${{ secrets.DB_DATABASE }}
+  DB_USERNAME: ${{ secrets.DB_USERNAME }}
+  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+ 
+      - name: Login to Docker Hub
+        run: docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
+ 
+      - name: Build and push Docker image
+        run: |
+          docker build --build-arg GOOGLE_API_KEY=$GOOGLE_API_KEY --build-arg GOOGLE_CUSTOM_SEARCH_ENGINE_ID=$GOOGLE_CUSTOM_SEARCH_ENGINE_ID --build-arg DB_HOST=$DB_HOST --build-arg DB_DATABASE=$DB_DATABASE --build-arg DB_USERNAME=$DB_USERNAME --build-arg DB_PASSWORD=$DB_PASSWORD --file Dockerfile --tag $DOCKERHUB_USERNAME/kingdom-bricks .
+          docker push $DOCKERHUB_USERNAME/kingdom-bricks
